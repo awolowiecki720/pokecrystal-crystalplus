@@ -113,6 +113,7 @@ EngineFlags:
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOT_SHUCKIE_TODAY_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_TRAINER_HOUSE_F
+	engine_flag wDailyFlags1, DAILYFLAGS1_FALKNER_REMATCH
 
 	engine_flag wDailyFlags2, DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_UNION_CAVE_LAPRAS_F

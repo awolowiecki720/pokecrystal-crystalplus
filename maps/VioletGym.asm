@@ -12,6 +12,9 @@ VioletGym_MapScripts:
 VioletGymFalknerScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .FalknerRematch
+.SkipRematch
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
@@ -52,6 +55,23 @@ VioletGymFalknerScript:
 .NoRoomForMudSlap:
 	closetext
 	end
+
+.FalknerRematch
+	checkflag ENGINE_DAILY_FALKNER_REMATCH
+	iftrue .SkipRematch
+	writetext FalknerRematchIntroText
+	waitbutton
+	closetext
+	winlosstext FalknerRematchWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_FALKNER_REMATCH
+	opentext
+	writetext FalknerRematchAfterBattleText
+	waitbutton
+	closetext
+	end	
 
 VioletGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -206,6 +226,38 @@ FalknerFightDoneText:
 	para "the greatest bird"
 	line "master!"
 	done
+
+FalknerRematchIntroText:
+	text "Congratulations"
+	line "on defeating the"
+	cont "ELITE 4!"
+
+	para "I've been training"
+	line "my FLYING-type"
+	cont "#MON even"
+	cont "harder."
+
+	para "Think you can take"
+	line "on the power of"
+	cont "the skies again?"
+	done
+
+FalknerRematchWinLossText:
+	text "Wow…"
+	line "You beat me again."
+
+	para "I'm going to train"
+	line "harder to become"
+
+	para "the greatest bird"
+	line "master!"
+	done
+
+FalknerRematchAfterBattleText:
+	text "Hmm… It's still a"
+	line "long way to become"
+	cont "the best trainer…"
+	done	
 
 BirdKeeperRodSeenText:
 	text "The keyword is"
