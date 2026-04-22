@@ -17,6 +17,9 @@ CianwoodGym_MapScripts:
 CianwoodGymChuckScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .ChuckRematch
+.SkipRematch
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
@@ -70,6 +73,23 @@ CianwoodGymChuckScript:
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
+	closetext
+	end
+
+.ChuckRematch
+	checkflag ENGINE_DAILY_CHUCK_REMATCH
+	iftrue .SkipRematch
+	writetext ChuckRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ChuckRematchWinLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_CHUCK_REMATCH
+	opentext
+	writetext ChuckRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -237,6 +257,34 @@ ChuckAfterText:
 	line "going to train 24"
 	cont "hours a day!"
 	done
+
+ChuckRematchIntroText:
+	text "WAHAHAH!"
+	line "JOHTO CHAMPION!"
+
+	para "You've come"
+	line "back for more!"
+
+	para "I see your"
+	line "skills have"
+	cont "improved!"
+
+	para "Ready to see"
+	line "who's stronger?"
+	done
+	
+ChuckRematchWinLossText:
+	text "Wha? Huh?"
+	line "I lost?"
+	cont "Again?"
+	done
+
+ChuckRematchAfterBattleText:
+	text "Wahaha!"
+
+	para "A battle with you"
+	line "is never boring!"
+	done 
 
 BlackbeltYoshiSeenText:
 	text "My #MON and I"

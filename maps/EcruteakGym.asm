@@ -24,6 +24,9 @@ EcruteakGymNoopScene:
 EcruteakGymMortyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .MortyRematch
+.SkipRematch	
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
@@ -65,6 +68,23 @@ EcruteakGymMortyScript:
 	writetext MortyFightDoneText
 	waitbutton
 .NoRoomForShadowBall:
+	closetext
+	end
+
+.MortyRematch	
+	checkflag ENGINE_DAILY_MORTY_REMATCH
+	iftrue .SkipRematch
+	writetext MortyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_MORTY_REMATCH
+	opentext
+	writetext MortyRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -273,6 +293,50 @@ MortyFightDoneText:
 	para "I envy you for"
 	line "that…"
 	done
+
+MortyRematchIntroText:
+	text "Ah, the JOHTO"
+	line "CHAMPION! Good"
+	cont "of you to come."
+
+	para "You've shown your"
+	line "strength and"
+	cont "skill, but have"
+
+	para "you improved"
+	line "since our last"
+	cont "battle?"
+
+	para "I've been"
+	line "training with my"
+	cont "GHOST-type"
+	cont "#MON."
+
+	para "Let's see if you"
+	line "can overcome the"
+	cont "shadows once"
+	cont "again."
+	done
+	
+MortyRematchWinLossText:
+	text "I'm not good"
+	line "enough yet…"
+
+	para "You have wit-"
+	line "nessed much more"
+	cont "than I."
+
+	para "I envy you for"
+	line "that…"
+	done
+
+MortyRematchAfterBattleText:
+	text "I've lost again…"
+	
+	para "You may have some-"
+	line "thing more than"
+	cont "just strength."
+	done 	
 
 SageJeffreySeenText:
 	text "I spent the spring"

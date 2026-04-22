@@ -29,6 +29,9 @@ BlackthornGym1FBouldersCallback:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .ClairRematch
+.SkipRematch
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
@@ -89,6 +92,23 @@ BlackthornGymClairScript:
 	waitbutton
 	closetext
 	end
+
+.ClairRematch
+	checkflag ENGINE_DAILY_CLAIR_REMATCH
+	iftrue .SkipRematch
+	writetext ClairRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ClairRematchWinLossText, 0
+	loadtrainer CLAIR, CLAIR2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_CLAIR_REMATCH
+	opentext
+	writetext ClairRematchAfterBattleText
+	waitbutton
+	closetext
+	end	
 
 TrainerCooltrainermPaul:
 	trainer COOLTRAINERM, PAUL, EVENT_BEAT_COOLTRAINERM_PAUL, CooltrainermPaulSeenText, CooltrainermPaulBeatenText, 0, .Script
@@ -282,6 +302,44 @@ BlackthornGymClairText_League:
 	para "Give it every-"
 	line "thing you've got."
 	done
+
+ClairRematchIntroText:
+	text "You did it, huh?"
+
+	para "You are now the"
+	line "JOHTO CHAMP."
+
+	para "You've proven"
+	line "your strength"
+
+	para "but can you"
+	line "handle me again?"
+
+	para "As a DRAGON"
+	line "trainer, I won't"
+	cont "hold back."
+
+	para "Not this time."
+	done
+
+ClairRematchWinLossText:
+	text "I lost?"
+
+	para "Again?"
+
+	para "I don't believe"
+	line "it. There must be"
+	cont "some mistake…"
+	done
+
+ClairRematchAfterBattleText:
+	text "Way to go."
+	line "…"
+
+	para "Now give it your"
+	line "all!"
+	done 
+
 
 CooltrainermPaulSeenText:
 	text "Your first battle"
