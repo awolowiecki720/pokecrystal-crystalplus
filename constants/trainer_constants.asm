@@ -34,6 +34,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass WHITNEY ; 2
 	const WHITNEY1
+	const WHITNEY2
 
 	trainerclass BUGSY ; 3
 	const BUGSY1
@@ -41,18 +42,23 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass MORTY ; 4
 	const MORTY1
+	const MORTY2
 
 	trainerclass PRYCE ; 5
 	const PRYCE1
+	const PRYCE2
 
 	trainerclass JASMINE ; 6
 	const JASMINE1
+	const JASMINE2
 
 	trainerclass CHUCK ; 7
 	const CHUCK1
+	const CHUCK2
 
 	trainerclass CLAIR ; 8
 	const CLAIR1
+	const CLAIR2
 
 	trainerclass RIVAL1 ; 9
 	const RIVAL1_1_CHIKORITA
