@@ -275,18 +275,18 @@ PryceRematchIntroText:
     cont "to learn from"
     cont "each other."
 
+	para "There's no need"
+	line "for words."
+	cont "A #MON battle"
+
+	para "is the way for us"
+	line "to communicate."
+
     para "I, PRYCE--the"
     line "winter trainer--"
 
     para "still have a"
     line "few tricks left."
-	
-	para "There's no need"
-	line "for words."
-	cont "A #MON battle"
-	
-	para "is the way for us"
-	line "to communicate."
 	done 
 	
 PryceRematchWinLossText:
