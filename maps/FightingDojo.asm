@@ -8,7 +8,25 @@ FightingDojo_MapScripts:
 	def_callbacks
 
 FightingDojoBlackBelt:
-	jumptextfaceplayer FightingDojoBlackBeltText
+	faceplayer
+	opentext
+	writetext FightingDojoBlackBeltText
+	waitbutton
+	;jumptextfaceplayer FightingDojoBlackBeltText
+	addcellnum PHONE_DOJO_BLACKBELT
+	opentext
+	writetext GotDojoNumberText
+	playsound SFX_REGISTER_PHONE_NUMBER
+	waitsfx
+	waitbutton
+	closetext
+	end
+
+GotDojoNumberText:
+	text "<PLAYER> got"
+	line "DOJO BLACKBELT's"
+	cont "phone number."
+	done	
 
 FightingDojoSign1:
 	jumptext FightingDojoSign1Text

@@ -94,6 +94,8 @@ BlackthornGymClairScript:
 	end
 
 .ClairRematch
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .SkipRematch
 	checkflag ENGINE_DAILY_CLAIR_REMATCH
 	iftrue .SkipRematch
 	writetext ClairRematchIntroText
