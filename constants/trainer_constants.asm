@@ -101,6 +101,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass BROCK ; 11
 	const BROCK1
+	const BROCK2
 
 	trainerclass MISTY ; 12
 	const MISTY1
