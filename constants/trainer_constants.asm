@@ -105,6 +105,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass MISTY ; 12
 	const MISTY1
+	const MISTY2
 
 	trainerclass LT_SURGE ; 13
 	const LT_SURGE1
