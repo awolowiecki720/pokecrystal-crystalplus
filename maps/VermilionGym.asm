@@ -13,6 +13,9 @@ VermilionGym_MapScripts:
 VermilionGymSurgeScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_LTSURGE
+	iftrue .LtSurgeRematch
+.SkipRematch
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
 	writetext LtSurgeIntroText
@@ -41,6 +44,23 @@ VermilionGymSurgeScript:
 	waitbutton
 	closetext
 	end
+
+.LtSurgeRematch
+	checkflag ENGINE_DAILY_LTSURGE_REMATCH
+	iftrue .SkipRematch
+	writetext LtSurgeRematchIntroText
+	waitbutton
+	closetext
+	winlosstext LtSurgeRematchWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_LTSURGE_REMATCH
+	opentext
+	writetext LtSurgeRematchAfterBattleText
+	waitbutton
+	closetext
+	end		
 
 TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script
@@ -158,6 +178,32 @@ LtSurgeFightDoneText:
 	para "My #MON and I"
 	line "are still at it!"
 	done
+
+LtSurgeRematchIntroText:
+	text "SURGE: Hey!"
+
+	para "You're back for"
+	line "more?"
+	
+	para "Then we'll elec-"
+	line "trify you!"
+	done 
+	
+LtSurgeRematchWinLossText:
+	text "SURGE: Arrrgh!"
+	line "You're still just"
+	cont "as strong!"
+	done
+
+LtSurgeRematchAfterBattleText:
+	text "SURGE: Arrrgh!"
+
+	para "You are major"
+	line "strong kid!"
+	
+	para "But I will repay"
+	line "my debt someday."
+	done	
 
 GentlemanGregorySeenText:
 	text "You're here to"
