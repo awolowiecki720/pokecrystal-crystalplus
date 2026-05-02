@@ -108,8 +108,9 @@ CheckDailyResetTimer::
 	ld hl, wDailyFlags1
 	ld [hli], a ; wDailyFlags1
 	ld [hli], a ; wDailyFlags2
-	ld [hli], a ; wSwarmFlags
-	ld [hl], a  ; wUnusedDailyFlag
+	ld [hli], a ; wDailyFlags3
+	ld [hli], a ; wDailyFlags4
+	ld [hl], a  ; wSwarmFlags
 	ld hl, wDailyRematchFlags
 rept 4
 	ld [hli], a

@@ -3197,9 +3197,9 @@ wMomItemTriggerBalance:: ds 3
 wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
+wDailyFlags3:: db ; Johto Gym Rematches
+wDailyFlags4:: db ; Kanto Gym Rematches	
 wSwarmFlags:: db
-wUnusedDailyFlag:: db
-	ds 1
 wTimerEventStartDay:: db
 	ds 3
 

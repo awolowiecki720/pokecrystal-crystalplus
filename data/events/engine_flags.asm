@@ -113,16 +113,6 @@ EngineFlags:
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOT_SHUCKIE_TODAY_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_TRAINER_HOUSE_F
-	engine_flag wDailyFlags1, DAILYFLAGS1_FALKNER_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_WHITNEY_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_BUGSY_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_MORTY_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_PRYCE_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_JASMINE_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_CHUCK_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_CLAIR_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_BROCK_REMATCH
-	engine_flag wDailyFlags1, DAILYFLAGS1_MISTY_REMATCH
 
 	engine_flag wDailyFlags2, DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_UNION_CAVE_LAPRAS_F
@@ -132,6 +122,19 @@ EngineFlags:
 	engine_flag wDailyFlags2, DAILYFLAGS2_INDIGO_PLATEAU_RIVAL_FIGHT_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_MOVE_TUTOR_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_BUENAS_PASSWORD_F
+
+	engine_flag wDailyFlags3, DAILYFLAGS3_FALKNER_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_WHITNEY_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_BUGSY_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_MORTY_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_PRYCE_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_JASMINE_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_CHUCK_REMATCH
+	engine_flag wDailyFlags3, DAILYFLAGS3_CLAIR_REMATCH
+	
+	engine_flag wDailyFlags4, DAILYFLAGS4_BROCK_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_MISTY_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_LTSURGE_REMATCH
 
 	engine_flag wSwarmFlags, SWARMFLAGS_BUENAS_PASSWORD_F
 	engine_flag wSwarmFlags, SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F
