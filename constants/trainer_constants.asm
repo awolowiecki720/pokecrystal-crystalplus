@@ -109,6 +109,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass LT_SURGE ; 13
 	const LT_SURGE1
+	const LT_SURGE2
 
 	trainerclass SCIENTIST ; 14
 	const ROSS
