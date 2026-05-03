@@ -14,6 +14,9 @@ SeafoamGymNoopScene:
 SeafoamGymBlaineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .BlaineRematch
+.SkipRematch
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
 	writetext BlaineIntroText
@@ -42,6 +45,23 @@ SeafoamGymBlaineScript:
 	waitbutton
 	closetext
 	end
+
+.BlaineRematch
+	checkflag ENGINE_DAILY_BLAINE_REMATCH
+	iftrue .SkipRematch
+	writetext BlaineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext BlaineRematchWinLossText, 0
+	loadtrainer BLAINE, BLAINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_BLAINE_REMATCH
+	opentext
+	writetext BlaineRematchAfterBattleText
+	waitbutton
+	closetext
+	end		
 
 SeafoamGymGuideScript:
 	faceplayer
@@ -122,6 +142,36 @@ BlaineFightDoneText:
 	para "even stronger."
 	line "Just you watch!"
 	done
+
+BlaineRematchIntroText:
+	text "BLAINE: Back for"
+	line "a rematch?"
+
+	para "Great stuff kiddo!"
+
+	para "Let's have another"
+	line "scorching battle!"
+	done 
+	
+BlaineRematchWinLossText:
+	text "BLAINE: Your"
+	line "skills are truly"
+	cont "heated!"
+
+	para "You've burned"
+	line "right through"
+	cont "my defenses."
+	done
+
+BlaineRematchAfterBattleText:
+	text "BLAINE: Waaah!"
+	
+	para "I lost the battle,"
+	line "but my fiery soul"
+
+	para "hasn't fizzled"
+	line "out just yet!"
+	done	
 
 SeafoamGymGuideWinText:
 	text "Yo!"

@@ -135,6 +135,11 @@ EngineFlags:
 	engine_flag wDailyFlags4, DAILYFLAGS4_BROCK_REMATCH
 	engine_flag wDailyFlags4, DAILYFLAGS4_MISTY_REMATCH
 	engine_flag wDailyFlags4, DAILYFLAGS4_LTSURGE_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_ERIKA_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_JANINE_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_SABRINA_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_BLAINE_REMATCH
+	engine_flag wDailyFlags4, DAILYFLAGS4_BLUE_REMATCH
 
 	engine_flag wSwarmFlags, SWARMFLAGS_BUENAS_PASSWORD_F
 	engine_flag wSwarmFlags, SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F

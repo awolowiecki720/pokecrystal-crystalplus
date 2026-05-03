@@ -59,7 +59,7 @@ CeruleanGymGruntRunsOutScript:
 CeruleanGymMistyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_MISTY
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .MistyRematch
 .SkipRematch
 	checkflag ENGINE_CASCADEBADGE

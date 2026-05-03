@@ -13,7 +13,7 @@ VermilionGym_MapScripts:
 VermilionGymSurgeScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_LTSURGE
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .LtSurgeRematch
 .SkipRematch
 	checkflag ENGINE_THUNDERBADGE

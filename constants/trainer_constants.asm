@@ -120,6 +120,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass ERIKA ; 15
 	const ERIKA1
+	const ERIKA2
 
 	trainerclass YOUNGSTER ; 16
 	const JOEY1
@@ -205,6 +206,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass JANINE ; 1a
 	const JANINE1
+	const JANINE2
 
 	trainerclass COOLTRAINERM ; 1b
 	const NICK
@@ -338,6 +340,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
+	const SABRINA2
 
 	trainerclass BUG_CATCHER ; 24
 	const DON
@@ -511,6 +514,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
+	const BLAINE2
 
 	trainerclass BURGLAR ; 2f
 	const DUNCAN
@@ -699,6 +703,7 @@ DEF KRIS EQU __trainer_class__
 
 	trainerclass BLUE ; 40
 	const BLUE1
+	const BLUE2
 
 	trainerclass OFFICER ; 41
 	const KEITH

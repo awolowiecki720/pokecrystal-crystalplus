@@ -11,7 +11,7 @@ PewterGym_MapScripts:
 PewterGymBrockScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_BROCK
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .BrockRematch
 .SkipRematch
 	checkflag ENGINE_BOULDERBADGE
