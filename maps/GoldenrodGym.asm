@@ -83,6 +83,8 @@ GoldenrodGymWhitneyScript:
 	end
 
 .WhitneyRematch:
+	readvar VAR_WEEKDAY
+	ifnotequal SATURDAY, .SkipRematch
 	checkflag ENGINE_DAILY_WHITNEY_REMATCH
 	iftrue .SkipRematch
 	opentext

@@ -61,6 +61,8 @@ MahoganyGymPryceScript:
 	end
 
 .PryceRematch
+	readvar VAR_WEEKDAY
+	ifnotequal MONDAY, .SkipRematch
 	checkflag ENGINE_DAILY_PRYCE_REMATCH
 	iftrue .SkipRematch
 	writetext PryceRematchIntroText

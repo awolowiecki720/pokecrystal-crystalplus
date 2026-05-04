@@ -87,6 +87,8 @@ CeruleanGymMistyScript:
 	end
 
 .MistyRematch
+	readvar VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .SkipRematch
 	checkflag ENGINE_DAILY_MISTY_REMATCH
 	iftrue .SkipRematch
 	writetext MistyRematchIntroText

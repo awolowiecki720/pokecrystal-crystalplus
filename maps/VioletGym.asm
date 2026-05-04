@@ -57,6 +57,8 @@ VioletGymFalknerScript:
 	end
 
 .FalknerRematch
+	readvar VAR_WEEKDAY
+	ifnotequal SATURDAY, .SkipRematch
 	checkflag ENGINE_DAILY_FALKNER_REMATCH
 	iftrue .SkipRematch
 	writetext FalknerRematchIntroText

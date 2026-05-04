@@ -77,6 +77,8 @@ CianwoodGymChuckScript:
 	end
 
 .ChuckRematch
+	readvar VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .SkipRematch
 	checkflag ENGINE_DAILY_CHUCK_REMATCH
 	iftrue .SkipRematch
 	writetext ChuckRematchIntroText

@@ -72,6 +72,8 @@ EcruteakGymMortyScript:
 	end
 
 .MortyRematch	
+	readvar VAR_WEEKDAY
+	ifnotequal TUESDAY, .SkipRematch
 	checkflag ENGINE_DAILY_MORTY_REMATCH
 	iftrue .SkipRematch
 	writetext MortyRematchIntroText

@@ -51,6 +51,8 @@ CeladonGymErikaScript:
 	end
 
 .ErikaRematch
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .SkipRematch
 	checkflag ENGINE_DAILY_ERIKA_REMATCH
 	iftrue .SkipRematch
 	writetext ErikaRematchIntroText

@@ -61,6 +61,8 @@ FuchsiaGymJanineScript:
 	end
 
 .JanineRematch
+	readvar VAR_WEEKDAY
+	ifnotequal MONDAY, .SkipRematch
 	checkflag ENGINE_DAILY_JANINE_REMATCH
 	iftrue .SkipRematch
 	faceplayer
