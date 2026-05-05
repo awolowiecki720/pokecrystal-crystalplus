@@ -186,7 +186,7 @@ Jasmine_GoodLuck:
 
 JasmineRematchIntroText:
 	text "…Congratulations,"
-    line "JOHTO CHAMPION."
+    line "LEAGUE CHAMPION."
 
     para "You have become"
     line "so strong…"

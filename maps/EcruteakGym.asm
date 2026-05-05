@@ -297,7 +297,7 @@ MortyFightDoneText:
 	done
 
 MortyRematchIntroText:
-	text "Ah, the JOHTO"
+	text "Ah, the LEAGUE"
 	line "CHAMPION! Good"
 	cont "of you to come."
 

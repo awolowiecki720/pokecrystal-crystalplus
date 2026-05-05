@@ -294,7 +294,7 @@ WhitneyGoodCryText:
 WhitneyRematchIntroText:
 	text "Hi! It's you!"
 
-    para "Wow, JOHTO"
+    para "Wow, LEAGUE"
     line "CHAMPION now?"
 
     para "You really are"

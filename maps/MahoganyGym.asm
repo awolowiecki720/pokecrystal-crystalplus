@@ -261,7 +261,7 @@ PryceText_CherishYourPokemon:
 	done
 
 PryceRematchIntroText:
-	text "Ah, JOHTO"
+	text "Ah, LEAGUE"
     line "CHAMPION!"
 
 	para "Finally."

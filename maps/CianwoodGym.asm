@@ -262,7 +262,7 @@ ChuckAfterText:
 
 ChuckRematchIntroText:
 	text "WAHAHAH!"
-	line "JOHTO CHAMPION!"
+	line "LEAGUE CHAMPION!"
 
 	para "You've come"
 	line "back for more!"

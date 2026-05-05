@@ -254,7 +254,7 @@ BugsyText_BugMonsAreDeep:
 
 BugsyRematchIntroText:
 	text "Wow, you're the"
-	line "JOHTO CHAMPION"
+	line "LEAGUE CHAMPION"
 	cont "now!"
 
 	para "Your skills are"

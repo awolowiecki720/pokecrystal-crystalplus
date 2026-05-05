@@ -309,7 +309,7 @@ ClairRematchIntroText:
 	text "You did it, huh?"
 
 	para "You are now the"
-	line "JOHTO CHAMP."
+	line "LEAGUE CHAMP."
 
 	para "You've proven"
 	line "your strength"
