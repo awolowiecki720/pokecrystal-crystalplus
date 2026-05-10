@@ -39,5 +39,4 @@ gfx/pokemon/*/frames.asm
 *.sg1
 
 # mac os 
-.DS_Store
-gfx/.DS_Store
+*.DS_Store
