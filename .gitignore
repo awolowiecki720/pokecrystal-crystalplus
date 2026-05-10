@@ -40,3 +40,4 @@ gfx/pokemon/*/frames.asm
 
 # mac os 
 .DS_Store
+gfx/.DS_Store
