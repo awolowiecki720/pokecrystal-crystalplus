@@ -199,7 +199,6 @@ EspeonFrontpic:      INCBIN "gfx/pokemon/espeon/front.animated.2bpp.lz"
 XatuFrontpic:        INCBIN "gfx/pokemon/xatu/front.animated.2bpp.lz"
 MewFrontpic:         INCBIN "gfx/pokemon/mew/front.animated.2bpp.lz"
 OctilleryFrontpic:   INCBIN "gfx/pokemon/octillery/front.animated.2bpp.lz"
-JynxFrontpic:        INCBIN "gfx/pokemon/jynx/front.animated.2bpp.lz"
 WobbuffetFrontpic:   INCBIN "gfx/pokemon/wobbuffet/front.animated.2bpp.lz"
 DelibirdFrontpic:    INCBIN "gfx/pokemon/delibird/front.animated.2bpp.lz"
 LedianFrontpic:      INCBIN "gfx/pokemon/ledian/front.animated.2bpp.lz"
@@ -775,10 +774,13 @@ INCBIN "gfx/pokemon/unown_i/back.2bpp.lz"
 INCBIN "gfx/pokemon/unown_r/back.2bpp.lz"
 
 
-; Sections "Pics 20" to "Pics 24" are not used for any graphics,
+; Sections "Pics 20" to "Pics 24" are not used for any graphics in pokecrystal,
 ; but entries for their banks exist in FixPicBank (see engine/gfx/load_pics.asm).
+; Now using Pics 20 as expansion bank for new sprite updates that did not fit in original bank
 
 SECTION "Pics 20", ROMX
+
+JynxFrontpic:        INCBIN "gfx/pokemon/jynx/front.animated.2bpp.lz"
 
 SECTION "Pics 21", ROMX
 
