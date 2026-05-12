@@ -6,6 +6,19 @@ DEF AUTO_INPUT EQU $ff
 	const DEBUG_BATTLE_F
 	const DEBUG_FIELD_F
 
+; wPokedexColor
+	const_def
+	const DEXCOLOR_RED
+	const DEXCOLOR_BLUE
+	const DEXCOLOR_PURPLE
+	const DEXCOLOR_BROWN
+	const DEXCOLOR_GREEN
+	const DEXCOLOR_PINK
+	const DEXCOLOR_YELLOW
+	const DEXCOLOR_CYAN
+       const DEXCOLOR_GRAY
+	const DEXCOLOR_MEWTWO
+
 ; wCurDexMode::
 	const_def
 	const DEXMODE_NEW
@@ -322,7 +335,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS1_GOT_SHUCKIE_TODAY_F             ; 5
 	const DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F ; 6
 	const DAILYFLAGS1_TRAINER_HOUSE_F                 ; 7
-
+	
 ; wDailyFlags2::
 	const_def
 	const DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F           ; 0
@@ -333,6 +346,28 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS2_INDIGO_PLATEAU_RIVAL_FIGHT_F        ; 5
 	const DAILYFLAGS2_MOVE_TUTOR_F                        ; 6
 	const DAILYFLAGS2_BUENAS_PASSWORD_F                   ; 7
+
+; wDailyFlags3:: Johto Gym Rematches
+	const_def
+	const DAILYFLAGS3_FALKNER_REMATCH				  ; 0
+	const DAILYFLAGS3_WHITNEY_REMATCH				  ; 1  
+	const DAILYFLAGS3_BUGSY_REMATCH					  ; 2
+	const DAILYFLAGS3_MORTY_REMATCH					  ; 3
+	const DAILYFLAGS3_PRYCE_REMATCH					  ; 4
+	const DAILYFLAGS3_JASMINE_REMATCH				  ;	5  
+	const DAILYFLAGS3_CHUCK_REMATCH					  ; 6
+	const DAILYFLAGS3_CLAIR_REMATCH					  ; 7
+
+; wDailyFlags4:: Kanto Gym Rematches	
+	const_def
+	const DAILYFLAGS4_BROCK_REMATCH					  ; 0
+	const DAILYFLAGS4_MISTY_REMATCH					  ; 1
+	const DAILYFLAGS4_LTSURGE_REMATCH				  ; 2
+	const DAILYFLAGS4_ERIKA_REMATCH				  	  ; 3
+	const DAILYFLAGS4_JANINE_REMATCH				  ; 4
+	const DAILYFLAGS4_SABRINA_REMATCH				  ; 5
+	const DAILYFLAGS4_BLAINE_REMATCH				  ; 6
+	const DAILYFLAGS4_BLUE_REMATCH				  	  ; 7
 
 ; wSwarmFlags::
 	const_def

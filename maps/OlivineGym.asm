@@ -10,6 +10,9 @@ OlivineGym_MapScripts:
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .JasmineRematch
+.SkipRematch
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
@@ -46,6 +49,25 @@ OlivineGymJasmineScript:
 .NoRoomForIronTail:
 	closetext
 	end
+
+.JasmineRematch
+	readvar VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .SkipRematch
+	checkflag ENGINE_DAILY_JASMINE_REMATCH
+	iftrue .SkipRematch
+	writetext JasmineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_JASMINE_REMATCH
+	opentext
+	writetext JasmineRematchAfterBattleText
+	waitbutton
+	closetext
+	end	
 
 OlivineGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -161,6 +183,37 @@ Jasmine_GoodLuck:
 	line "how to say this,"
 	cont "but good luck…"
 	done
+
+JasmineRematchIntroText:
+	text "…Congratulations,"
+    line "LEAGUE CHAMPION."
+
+    para "You have become"
+    line "so strong…"
+
+	para "I have just re-"
+	line "turned from visit-"
+	cont "ing AMPHY…"
+
+	para "I wonder if I"
+    line "have improved."
+
+    para "Would you like"
+    line "to test that?"
+	done 
+	
+JasmineRematchWinLossText:
+	text "…You are a better"
+	line "trainer than me,"
+
+	para "in both skill and"
+	line "kindness."
+	done
+
+JasmineRematchAfterBattleText:
+	text "True to your"
+	line "reputation…"
+	done 
 
 OlivineGymGuideText:
 	text "JASMINE uses the"

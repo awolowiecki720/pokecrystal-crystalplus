@@ -14,6 +14,9 @@ CeladonGym_MapScripts:
 CeladonGymErikaScript:
 	faceplayer
 	opentext
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .ErikaRematch
+.SkipRematch
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .FightDone
 	writetext ErikaBeforeBattleText
@@ -46,6 +49,25 @@ CeladonGymErikaScript:
 	waitbutton
 	closetext
 	end
+
+.ErikaRematch
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .SkipRematch
+	checkflag ENGINE_DAILY_ERIKA_REMATCH
+	iftrue .SkipRematch
+	writetext ErikaRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ErikaRematchWinLossText, 0
+	loadtrainer ERIKA, ERIKA2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_ERIKA_REMATCH
+	opentext
+	writetext ErikaRematchAfterBattleText
+	waitbutton
+	closetext
+	end		
 
 TrainerLassMichelle:
 	trainer LASS, MICHELLE, EVENT_BEAT_LASS_MICHELLE, LassMichelleSeenText, LassMichelleBeatenText, 0, .Script
@@ -179,6 +201,46 @@ ErikaAfterBattleText:
 	text "ERIKA: Losing"
 	line "leaves a bitter"
 	cont "aftertaste…"
+
+	para "But knowing that"
+	line "there are strong"
+
+	para "trainers spurs me"
+	line "to do better…"
+	done
+
+ErikaRematchIntroText:
+	text "ERIKA: Oh, hello."
+
+	para "It's so lovely"
+	line "to see you again."
+
+	para "Your journey"
+	line "must have been"
+	cont "so exciting."
+
+	para "I just love the"
+	line "fragrance here…"
+
+	para "but…let's ignore"
+	line "that for now…"
+	
+	para "Want to have a"
+	line "rematch with me?"
+	done
+	
+ErikaRematchWinLossText:
+	text "Looks like I un-"
+	line "derestimated you…"
+
+	para "I'll bow out"
+	line "gracefully."
+	done 
+
+ErikaRematchAfterBattleText:
+	text "ERIKA: Losing"
+	line "still leaves a"
+	cont "bitter aftertaste…"
 
 	para "But knowing that"
 	line "there are strong"

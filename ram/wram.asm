@@ -740,14 +740,12 @@ wDexListingCursorBackup:: db
 wBackupDexListingCursor:: db
 wBackupDexListingPage:: db
 wDexCurLocation:: db
-if DEF(_CRYSTAL11)
 wPokedexStatus:: db
-wPokedexDataEnd::
-else
+wPokedexShinyToggle::
+; bit 0: set if displaying shiny palettes
+	db
 wPokedexDataEnd::
 	ds 1
-endc
-	ds 2
 
 NEXTU
 ; pokegear
@@ -1530,14 +1528,7 @@ wCreditsLYOverride:: db
 NEXTU
 ; pokedex
 wPrevDexEntryJumptableIndex:: db
-if DEF(_CRYSTAL11)
 wPrevDexEntryBackup:: db
-else
-; BUG: Crystal 1.0 reused the same byte in WRAM for
-; wPokedexStatus and wPrevDexEntryBackup.
-wPokedexStatus::
-wPrevDexEntryBackup:: db
-endc
 wUnusedPokedexByte:: db
 
 NEXTU
@@ -3018,7 +3009,7 @@ wPokegearFlags::
 	db
 wRadioTuningKnob:: db
 wLastDexMode:: db
-	ds 1
+wCurPokedexColor:: db ; current dex color
 wWhichRegisteredItem:: db
 wRegisteredItem:: db
 
@@ -3206,9 +3197,9 @@ wMomItemTriggerBalance:: ds 3
 wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
+wDailyFlags3:: db ; Johto Gym Rematches
+wDailyFlags4:: db ; Kanto Gym Rematches	
 wSwarmFlags:: db
-wUnusedDailyFlag:: db
-	ds 1
 wTimerEventStartDay:: db
 	ds 3
 
