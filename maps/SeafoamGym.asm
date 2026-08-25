@@ -49,6 +49,10 @@ SeafoamGymBlaineScript:
 .BlaineRematch
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
+	;readvar VAR_TIMEOFDAY
+	;ifnotequal DAY, .SkipRematch
 	checkflag ENGINE_DAILY_BLAINE_REMATCH
 	iftrue .SkipRematch
 	writetext BlaineRematchIntroText

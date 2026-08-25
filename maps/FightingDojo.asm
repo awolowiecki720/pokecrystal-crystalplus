@@ -11,7 +11,7 @@ FightingDojoBlackBelt:
 	faceplayer
 	opentext
 	writetext FightingDojoBlackBeltText
-	promptbutton
+	;promptbutton
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY,    .Sunday
 	ifequal MONDAY,    .Monday
@@ -39,11 +39,21 @@ FightingDojoBlackBelt:
 	sjump .Done
 
 .Tuesday
-	writetext JohtoTuesdayHintText
+	checktime DAY
+	iftrue .TuesdayDay
+	checktime NITE
+	iftrue .TuesdayNight
+	; Morning
+	sjump .Done
+.TuesdayDay
 	checkevent EVENT_OPENED_MT_SILVER
 	iffalse .Done
 	promptbutton
-	writetext KantoTuesdayHintText
+	writetext BlaineHintText
+	sjump .Done
+.TuesdayNight
+	promptbutton
+	writetext MortyHintText
 	sjump .Done
 
 .Wednesday
@@ -137,7 +147,7 @@ KantoMondayHintText:
 	cont "shadows."
 	done
 
-JohtoTuesdayHintText:
+MortyHintText:
 	text "The spirits near"
 	line "ECRUTEAK are very"
 	cont "still…"
@@ -148,7 +158,7 @@ JohtoTuesdayHintText:
 	cont "today."
 	done
 
-KantoTuesdayHintText:
+BlaineHintText:
 	text "Heat is rising"
 	line "from the cave at"
 	cont "SEAFOAM ISLANDS."
