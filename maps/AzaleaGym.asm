@@ -62,6 +62,8 @@ AzaleaGymBugsyScript:
 .BugsyRematch
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_BUGSY_REMATCH
 	iftrue .SkipRematch
 	writetext BugsyRematchIntroText

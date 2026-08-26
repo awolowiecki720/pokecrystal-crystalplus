@@ -42,6 +42,8 @@ ViridianGymBlueScript:
 .BlueRematch
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .SkipRematch
+	checktime NITE
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_BLUE_REMATCH
 	iftrue .SkipRematch
 	writetext BlueRematchIntroText

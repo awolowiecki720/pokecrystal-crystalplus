@@ -53,6 +53,8 @@ OlivineGymJasmineScript:
 .JasmineRematch
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_JASMINE_REMATCH
 	iftrue .SkipRematch
 	writetext JasmineRematchIntroText
