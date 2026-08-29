@@ -10,7 +10,7 @@ OlivineGym_MapScripts:
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .JasmineRematch
 .SkipRematch
 	checkevent EVENT_BEAT_JASMINE

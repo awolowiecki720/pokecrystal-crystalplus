@@ -11,6 +11,9 @@ FightingDojoBlackBelt:
 	faceplayer
 	opentext
 	writetext FightingDojoBlackBeltText
+	; check Mt. Silver opened for all rematches
+	checkevent EVENT_OPENED_MT_SILVER
+	iffalse .Done
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY,    .Sunday
 	ifequal MONDAY,    .Monday
@@ -29,20 +32,20 @@ FightingDojoBlackBelt:
 	checktime NITE
 	iftrue .SundayNight
 .SundayMorn
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_ERIKA_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext ErikaHintText
 	sjump .Done
 .SundayDay
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_SABRINA_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext SabrinaHintText
 	sjump .Done
 .SundayNight
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_BLUE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext BlueHintText
 	sjump .Done
@@ -55,12 +58,14 @@ FightingDojoBlackBelt:
 	; Night
 	sjump .Done
 .MondayMorn
+	checkflag ENGINE_DAILY_PRYCE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext PryceHintText
 	sjump .Done
 .MondayDay	
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_JANINE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext JanineHintText
 	sjump .Done
@@ -73,12 +78,14 @@ FightingDojoBlackBelt:
 	; Morning
 	sjump .Done
 .TuesdayDay
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_BLAINE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext BlaineHintText
 	sjump .Done
 .TuesdayNight
+	checkflag ENGINE_DAILY_MORTY_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext MortyHintText
 	sjump .Done
@@ -91,16 +98,20 @@ FightingDojoBlackBelt:
 	checktime NITE
 	iftrue .WedNight
 .WedMorn
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_MISTY_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext MistyHintText
 	sjump .Done
 .WedDay
+	checkflag ENGINE_DAILY_JASMINE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext JasmineHintText
 	sjump .Done
 .WedNight
+	checkflag ENGINE_DAILY_CHUCK_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext ChuckHintText
 	sjump .Done
@@ -111,6 +122,8 @@ FightingDojoBlackBelt:
 	; Morning or Nite
 	sjump .Done
 .ThursdayDay	
+	checkflag ENGINE_DAILY_BUGSY_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext BugsyHintText
 	sjump .Done
@@ -123,12 +136,14 @@ FightingDojoBlackBelt:
 	; Day
 	sjump .Done
 .FridayMorn
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_LTSURGE_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext SurgeHintText
 	sjump .Done
 .FridayNight	
+	checkflag ENGINE_DAILY_CLAIR_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext ClairHintText
 	sjump .Done
@@ -141,16 +156,20 @@ FightingDojoBlackBelt:
 	checktime NITE
 	iftrue .SatNight
 .SatMorn
+	checkflag ENGINE_DAILY_FALKNER_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext FalknerHintText
 	sjump .Done
 .SatDay
+	checkflag ENGINE_DAILY_WHITNEY_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext WhitneyHintText
 	sjump .Done
 .SatNight	
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checkflag ENGINE_DAILY_BROCK_REMATCH
+	iftrue .Done
 	promptbutton
 	writetext BrockHintText
 	sjump .Done

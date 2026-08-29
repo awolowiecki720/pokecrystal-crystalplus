@@ -17,7 +17,7 @@ CianwoodGym_MapScripts:
 CianwoodGymChuckScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .ChuckRematch
 .SkipRematch
 	checkevent EVENT_BEAT_CHUCK
