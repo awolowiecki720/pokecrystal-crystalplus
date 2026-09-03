@@ -44,6 +44,8 @@ PewterGymBrockScript:
 .BrockRematch
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .SkipRematch
+	checktime NITE
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_BROCK_REMATCH
 	iftrue .SkipRematch
 	writetext BrockRematchIntroText

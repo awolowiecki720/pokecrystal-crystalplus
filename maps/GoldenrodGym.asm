@@ -21,7 +21,7 @@ GoldenrodGymNoop2Scene:
 
 GoldenrodGymWhitneyScript:
 	faceplayer
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .WhitneyRematch
 .SkipRematch
 	checkevent EVENT_BEAT_WHITNEY
@@ -85,6 +85,8 @@ GoldenrodGymWhitneyScript:
 .WhitneyRematch:
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_WHITNEY_REMATCH
 	iftrue .SkipRematch
 	opentext

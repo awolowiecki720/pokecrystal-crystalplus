@@ -29,7 +29,7 @@ BlackthornGym1FBouldersCallback:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .ClairRematch
 .SkipRematch
 	checkflag ENGINE_RISINGBADGE
@@ -96,6 +96,8 @@ BlackthornGymClairScript:
 .ClairRematch
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .SkipRematch
+	checktime NITE
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_CLAIR_REMATCH
 	iftrue .SkipRematch
 	writetext ClairRematchIntroText

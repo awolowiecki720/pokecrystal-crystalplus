@@ -15,7 +15,7 @@ AzaleaGym_MapScripts:
 AzaleaGymBugsyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .BugsyRematch
 .SkipRematch
 	checkevent EVENT_BEAT_BUGSY
@@ -62,6 +62,8 @@ AzaleaGymBugsyScript:
 .BugsyRematch
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_BUGSY_REMATCH
 	iftrue .SkipRematch
 	writetext BugsyRematchIntroText

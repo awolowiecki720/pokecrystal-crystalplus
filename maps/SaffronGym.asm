@@ -50,6 +50,8 @@ SaffronGymSabrinaScript:
 .SabrinaRematch
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_SABRINA_REMATCH
 	iftrue .SkipRematch
 	writetext SabrinaRematchIntroText

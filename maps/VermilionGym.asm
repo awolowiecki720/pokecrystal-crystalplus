@@ -48,6 +48,8 @@ VermilionGymSurgeScript:
 .LtSurgeRematch
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .SkipRematch
+	checktime MORN
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_LTSURGE_REMATCH
 	iftrue .SkipRematch
 	writetext LtSurgeRematchIntroText

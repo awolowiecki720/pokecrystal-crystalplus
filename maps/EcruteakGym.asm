@@ -24,7 +24,7 @@ EcruteakGymNoopScene:
 EcruteakGymMortyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .MortyRematch
 .SkipRematch	
 	checkevent EVENT_BEAT_MORTY
@@ -74,6 +74,8 @@ EcruteakGymMortyScript:
 .MortyRematch	
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .SkipRematch
+	checktime NITE
+	iffalse .SkipRematch
 	checkflag ENGINE_DAILY_MORTY_REMATCH
 	iftrue .SkipRematch
 	writetext MortyRematchIntroText

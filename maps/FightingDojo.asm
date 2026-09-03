@@ -11,7 +11,9 @@ FightingDojoBlackBelt:
 	faceplayer
 	opentext
 	writetext FightingDojoBlackBeltText
-	promptbutton
+	; check Mt. Silver opened for all rematches
+	checkevent EVENT_OPENED_MT_SILVER
+	iffalse .Done
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY,    .Sunday
 	ifequal MONDAY,    .Monday
@@ -23,59 +25,153 @@ FightingDojoBlackBelt:
 	sjump .Done
 
 .Sunday
-	writetext JohtoSundayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime MORN
+	iftrue .SundayMorn
+	checktime DAY
+	iftrue .SundayDay
+	checktime NITE
+	iftrue .SundayNight
+.SundayMorn
+	checkflag ENGINE_DAILY_ERIKA_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoSundayHintText
+	writetext ErikaHintText
+	sjump .Done
+.SundayDay
+	checkflag ENGINE_DAILY_SABRINA_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext SabrinaHintText
+	sjump .Done
+.SundayNight
+	checkflag ENGINE_DAILY_BLUE_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext BlueHintText
 	sjump .Done
 	
 .Monday
-	writetext JohtoMondayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime MORN
+	iftrue .MondayMorn
+	checktime DAY
+	iftrue .MondayDay
+	; Night
+	sjump .Done
+.MondayMorn
+	checkflag ENGINE_DAILY_PRYCE_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoMondayHintText
+	writetext PryceHintText
+	sjump .Done
+.MondayDay	
+	checkflag ENGINE_DAILY_JANINE_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext JanineHintText
 	sjump .Done
 
 .Tuesday
-	writetext JohtoTuesdayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime DAY
+	iftrue .TuesdayDay
+	checktime NITE
+	iftrue .TuesdayNight
+	; Morning
+	sjump .Done
+.TuesdayDay
+	checkflag ENGINE_DAILY_BLAINE_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoTuesdayHintText
+	writetext BlaineHintText
+	sjump .Done
+.TuesdayNight
+	checkflag ENGINE_DAILY_MORTY_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext MortyHintText
 	sjump .Done
 
 .Wednesday
-	writetext JohtoWednesdayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime MORN
+	iftrue .WedMorn
+	checktime DAY
+	iftrue .WedDay
+	checktime NITE
+	iftrue .WedNight
+.WedMorn
+	checkflag ENGINE_DAILY_MISTY_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoWednesdayHintText
+	writetext MistyHintText
+	sjump .Done
+.WedDay
+	checkflag ENGINE_DAILY_JASMINE_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext JasmineHintText
+	sjump .Done
+.WedNight
+	checkflag ENGINE_DAILY_CHUCK_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext ChuckHintText
 	sjump .Done
 	
 .Thursday
-	writetext JohtoThursdayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime DAY
+	iftrue .ThursdayDay
+	; Morning or Nite
+	sjump .Done
+.ThursdayDay	
+	checkflag ENGINE_DAILY_BUGSY_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoThursdayHintText
+	writetext BugsyHintText
 	sjump .Done
 
 .Friday
-	writetext JohtoFridayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime MORN
+	iftrue .FridayMorn
+	checktime NITE
+	iftrue .FridayNight
+	; Day
+	sjump .Done
+.FridayMorn
+	checkflag ENGINE_DAILY_LTSURGE_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoFridayHintText
+	writetext SurgeHintText
+	sjump .Done
+.FridayNight	
+	checkflag ENGINE_DAILY_CLAIR_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext ClairHintText
 	sjump .Done
 
 .Saturday
-	writetext JohtoSaturdayHintText
-	checkevent EVENT_OPENED_MT_SILVER
-	iffalse .Done
+	checktime MORN
+	iftrue .SatMorn
+	checktime DAY
+	iftrue .SatDay
+	checktime NITE
+	iftrue .SatNight
+.SatMorn
+	checkflag ENGINE_DAILY_FALKNER_REMATCH
+	iftrue .Done
 	promptbutton
-	writetext KantoSaturdayHintText
+	writetext FalknerHintText
+	sjump .Done
+.SatDay
+	checkflag ENGINE_DAILY_WHITNEY_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext WhitneyHintText
+	sjump .Done
+.SatNight	
+	checkflag ENGINE_DAILY_BROCK_REMATCH
+	iftrue .Done
+	promptbutton
+	writetext BrockHintText
 	sjump .Done
 
 .Done	
@@ -103,41 +199,45 @@ FightingDojoBlackBeltText:
 	cont "training."
 	done
 
-JohtoSundayHintText:
-	text "…JOHTO'S leaders"
-	line "aren't seeking any"
-	cont "rematches today…"
+;JohtoSundayHintText:
+;	text "…JOHTO'S leaders"
+;	line "aren't seeking any"
+;	cont "rematches today…"
+;	done
+
+ErikaHintText:
+	text "…Nature's princess"
+	line "in CELADON awaits."
 	done
 
-KantoSundayHintText:
-	text "…Nature's princess"
-	line "in CELADON, and"
+SabrinaHintText:	
+	text "The PSYCHIC master"
+	line "of SAFFRON GYM is"
 	
-	para "the PSYCHIC master"
-	line "of SAFFRON, are"
-	cont "eager for another"
-	cont "#MON battle!"
+	para "predicting another"
+	line "#MON battle!"
+	done
 
-	para "Hoo-ha! the former"
+BlueHintText:	
+	text "Hoo-ha! the former"
 	line "CHAMPION awaits in"
-	cont "VIRIDIAN GYM too."
+	cont "VIRIDIAN GYM."
 	done	
 
-JohtoMondayHintText:
+PryceHintText:
 	text "I hear the leader"
 	line "of MAHOGANY GYM"
 	cont "is ready for a"
 	cont "rematch today."
 	done
 
-KantoMondayHintText:
-	text "Also, the ninja"
+JanineHintText:
+	text "The POISON ninja"
 	line "master of FUCHSIA"
-	cont "is waiting in the"
-	cont "shadows."
+	cont "is keen to battle."
 	done
 
-JohtoTuesdayHintText:
+MortyHintText:
 	text "The spirits near"
 	line "ECRUTEAK are very"
 	cont "still…"
@@ -148,7 +248,7 @@ JohtoTuesdayHintText:
 	cont "today."
 	done
 
-KantoTuesdayHintText:
+BlaineHintText:
 	text "Heat is rising"
 	line "from the cave at"
 	cont "SEAFOAM ISLANDS."
@@ -159,19 +259,21 @@ KantoTuesdayHintText:
 	cont "fighting spirit!"
 	done
 
-JohtoWednesdayHintText:
+ChuckHintText:
 	text "In CIANWOOD GYM,"
 	line "the leader says"
 	cont "his roaring fists"
 	cont "do the talking!"
-	
-	para "The STEEL-clad"
+	done
+
+JasmineHintText:
+	text "The STEEL-clad"
 	line "maiden of OLIVINE"
 	cont "is also waiting"
 	cont "for a challenge!"
 	done
 
-KantoWednesdayHintText:
+MistyHintText:
 	text "And, the tomboyish"
 	line "mermaid is at"
 	cont "CERULEAN GYM."
@@ -181,47 +283,49 @@ KantoWednesdayHintText:
 	cont "sweet #MON!"
 	done
 
-JohtoThursdayHintText:
+BugsyHintText:
 	text "The BUG prodigy"
 	line "at AZALEA GYM"
 	cont "is studying new"
 	cont "battle tactics."
 	done
 
-KantoThursdayHintText:
-	text "KANTO'S leaders"
-	line "seem to be rest-"
-	cont "ing their #MON"
-	cont "today."
-	done
+;KantoThursdayHintText:
+;	text "KANTO'S leaders"
+;	line "seem to be rest-"
+;	cont "ing their #MON"
+;	cont "today."
+;	done
 
-JohtoFridayHintText:
+ClairHintText:
 	text "The dragon lady"
 	line "of BLACKTHORN"
 	cont "GYM is ready for"
 	cont "a battle!"
 	done
 
-KantoFridayHintText:
+SurgeHintText:
 	text "The soldier in"
 	line "VERMILION GYM is"
 	cont "electrifying his"
 	cont "defenses."
 	done
 
-JohtoSaturdayHintText:
+FalknerHintText:
 	text "The elegant bird"
 	line "master in VIOLET"
 	cont "GYM is ready to"
 	cont "take flight!"
-	
-	para "Also, the pretty"
+	done
+
+WhitneyHintText:
+	text "Also, the pretty"
 	line "girl of GOLDEN-"
 	cont "ROD GYM wants a"
 	cont "new challenge!"
 	done
 
-KantoSaturdayHintText:
+BrockHintText:
 	text "And, the leader"
 	line "in PEWTER GYM"
 	
