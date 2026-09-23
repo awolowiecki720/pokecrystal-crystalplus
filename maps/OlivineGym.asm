@@ -187,29 +187,18 @@ Jasmine_GoodLuck:
 	done
 
 JasmineRematchIntroText:
-	text "…Congratulations,"
-    line "LEAGUE CHAMPION."
+	text "We're here as we" 
+	line "promised…"
 
-    para "You have become"
-    line "so strong…"
-
-	para "I have just re-"
-	line "turned from visit-"
-	cont "ing AMPHY…"
-
-	para "I wonder if I"
-    line "have improved."
-
-    para "Would you like"
-    line "to test that?"
+	para "I have just retur-"
+	line "ned from visiting"
+	cont "AMPHY…"
+	
+	para "Are you prepared?"
 	done 
 	
 JasmineRematchWinLossText:
-	text "…You are a better"
-	line "trainer than me,"
-
-	para "in both skill and"
-	line "kindness."
+	text "Well done…"
 	done
 
 JasmineRematchAfterBattleText:

@@ -263,35 +263,13 @@ PryceText_CherishYourPokemon:
 	done
 
 PryceRematchIntroText:
-	text "Ah, LEAGUE"
-    line "CHAMPION!"
-
-	para "Finally."
-	
-	para "Your skills"
-    line "are indeed"
-    cont "remarkable."
-
-    para "I am impressed."
-
-    para "But even now,"
-    line "there is much"
-    cont "to learn from"
-    cont "each other."
-
-	para "There's no need"
+	text "Finally. No need"
 	line "for words."
-	cont "A #MON battle"
 
-	para "is the way for us"
-	line "to communicate."
-
-    para "I, PRYCE--the"
-    line "winter trainer--"
-
-    para "still have a"
-    line "few tricks left."
-	done 
+	para "A #MON battle"
+	line "is how we communi-"
+	cont "cate."
+	done
 	
 PryceRematchWinLossText:
 	text "Hmm. Seems my luck"
@@ -299,15 +277,7 @@ PryceRematchWinLossText:
 	done 
 
 PryceRematchAfterBattleText:
-	text "Ah, yet again I'm"
-	line "impressed by your"
-	cont "prowess."
-
-	para "With your strong"
-	line "will, I know you"
-
-	para "will overcome all"
-	line "life's obstacles."
+	text "Mmm… Impressive!"
 	done
 
 BoarderRonaldSeenText:

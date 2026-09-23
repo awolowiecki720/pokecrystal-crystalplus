@@ -221,22 +221,15 @@ SabrinaRematchIntroText:
 	text "SABRINA: I knew"
 	line "you'd come again…"
 
-	para "Your power has"
-	line "grown immensely."
-
-	para "Even now, I feel"
-	line "your aura."
-
-	para "Let me test you"
-	line "once more."
+	para "I had a feeling."
 	done
 
 SabrinaRematchWinLossText:
 	text "SABRINA: Your love"
-	line "for your #MON"
+	line "for your #MON…"
 
-	para "again overwhelmed"
-	line "my psychic power…"
+	para "It overwhelmed me"
+	line "again…"
 	done
 
 SabrinaRematchAfterBattleText:

@@ -314,14 +314,16 @@ JanineText_ApplyMyself:
 JanineRematchIntroText:
 	text "Fufufufu…"
 
-	para "With my ninja te-"
-	line "chnique, I won't"
-	cont "let you win!"
+	para "I can't use my"
+	line "ninja technique,"
+
+	para "but I won't let"
+	line "you win!"
 	done
 	
 JanineRematchWinLossText:
-	text "…!!!"
-	line "So… So strong!"
+	text "!!!"
+	line "So so strong!"
 	done 
 
 JanineRematchAfterBattleText:

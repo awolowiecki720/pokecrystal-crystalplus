@@ -161,13 +161,10 @@ LeaderBlueEpilogueText:
 	done
 
 BlueRematchIntroText:
-	text "BLUE: Well, well."
-
-	para "Looks like you've"
-	line "come a long way."
-
-	para "Let's see if you"
-	line "can keep it up."
+	text "BLUE: Good!"
+	
+	para "Thanks for coming"
+	line "to lose to me!"
 	done
 	
 BlueRematchWinLossText:

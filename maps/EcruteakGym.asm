@@ -299,39 +299,19 @@ MortyFightDoneText:
 	done
 
 MortyRematchIntroText:
-	text "Ah, the LEAGUE"
-	line "CHAMPION! Good"
-	cont "of you to come."
+	text "I was just talking"
+	line "about you…" 
 
-	para "You've shown your"
-	line "strength and"
-	cont "skill, but have"
+	para "I've been training"
+	line "with my GHOST-type"
+	cont "#MON…"
 
-	para "you improved"
-	line "since our last"
-	cont "battle?"
-
-	para "I've been"
-	line "training with my"
-	cont "GHOST-type"
-	cont "#MON."
-
-	para "Let's see if you"
-	line "can overcome the"
-	cont "shadows once"
-	cont "again."
+	para "Let's battle!"
 	done
 	
 MortyRematchWinLossText:
-	text "I'm not good"
-	line "enough yet…"
-
-	para "You have wit-"
-	line "nessed much more"
-	cont "than I."
-
-	para "I envy you for"
-	line "that…"
+	text "I'm still not good"
+	line "enough…"
 	done
 
 MortyRematchAfterBattleText:
