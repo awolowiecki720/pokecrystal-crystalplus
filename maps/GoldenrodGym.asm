@@ -294,20 +294,13 @@ WhitneyGoodCryText:
 	done
 
 WhitneyRematchIntroText:
-	text "Hi! It's you!"
+	text "I never break my"
+	line "promises!"
 
-    para "Wow, LEAGUE"
-    line "CHAMPION now?"
+    para "I want to see how"
+    line "strong you are."
 
-    para "You really are"
-    line "amazing!"
-
-    para "I want to see"
-    line "how strong you"
-    cont "are."
-
-	para "Want to have a"
-	line "rematch with me?"
+	para "Are you ready?"
 	done
 	
 WhitneyRematchWinLossText:

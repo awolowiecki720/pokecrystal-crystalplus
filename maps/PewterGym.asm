@@ -171,26 +171,27 @@ BrockFightDoneText:
 BrockRematchIntroText:
 	text "BROCK: All right!"
 	
-	para "Time to show you"
-	line "my #MON's rock-"
-	cont "hard defense!"
+	para "Time to fulfill"
+	line "our promise!"
 
-	para "Let's go!"
+	para "Let's battle!"
 	done 
 	
 BrockRematchWinLossText:
-	text "BROCK: Your #-"
-	line "MON once again"
-	cont "overcame my rock-"
-	cont "hard defense…"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "BROCK: Seems your"
+	line "#MON once again"
+	
+	para "overcame my rock-"
+	line "hard resistance."
 	done
 
 BrockRematchAfterBattleText:
 	text "BROCK: I've lost"
 	line "again…"
-	
-	para "You aren't adven-"
-	line "turing around for"
+
+	para "You aren't advent-"
+	line "uring around for"
 	cont "nothing!"
 	done 
 

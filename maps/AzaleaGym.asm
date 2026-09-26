@@ -255,30 +255,18 @@ BugsyText_BugMonsAreDeep:
 	done
 
 BugsyRematchIntroText:
-	text "Wow, you're the"
-	line "LEAGUE CHAMPION"
-	cont "now!"
+	text "Good to see you"
+	line "again!"
 
-	para "Your skills are"
-	line "truly impressive!"
-
-	para "I've been busy"
-	line "with my research."
-
-	para "I'm ready to"
-	line "show you my new"
-	cont "findings."
-
-	para "Want to have a"
-	line "rematch with me?"
+	para "I'm ready to show"
+	line "you my findings."
+	
+	para "Behold my BUG"
+	line "research!"
 	done	
 
 BugsyRematchWinLossText:
-	text "Wow, you must"
-	line "be an expert"
-	cont "trainer."
-
-	para "My research must"
+	text "My research must"
 	line "not be complete…"
 	done
 

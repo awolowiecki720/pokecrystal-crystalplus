@@ -214,29 +214,19 @@ ErikaAfterBattleText:
 ErikaRematchIntroText:
 	text "ERIKA: Oh, hello."
 
-	para "It's so lovely"
-	line "to see you again."
-
-	para "Your journey"
-	line "must have been"
-	cont "so exciting."
+	para "How are you? Good"
+	line "to see you again!"
 
 	para "I just love the"
 	line "fragrance here…"
 
-	para "but…let's ignore"
-	line "that for now…"
-	
-	para "Want to have a"
-	line "rematch with me?"
+	para "But…let's ignore"
+	line "that and battle!"
 	done
 	
 ErikaRematchWinLossText:
-	text "Looks like I un-"
-	line "derestimated you…"
-
-	para "I'll bow out"
-	line "gracefully."
+	text "You have grown"
+	line "even stronger…"
 	done 
 
 ErikaRematchAfterBattleText:

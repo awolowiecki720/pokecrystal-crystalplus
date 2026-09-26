@@ -189,6 +189,7 @@ FightingDojoFocusBand:
 	itemball FOCUS_BAND
 
 FightingDojoBlackBeltText:
+	;pfsf"xxxxxxxxxxxxxxxxxx"
 	text "Hello!"
 
 	para "KARATE KING, the"
@@ -199,19 +200,17 @@ FightingDojoBlackBeltText:
 	cont "training."
 	done
 
-;JohtoSundayHintText:
-;	text "…JOHTO'S leaders"
-;	line "aren't seeking any"
-;	cont "rematches today…"
-;	done
-
 ErikaHintText:
-	text "…Nature's princess"
-	line "in CELADON awaits."
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "The Nature Loving"
+	line "Princess ERIKA is"
+
+	para "honing her senses"
+	line "at CELADON GYM."
 	done
 
 SabrinaHintText:	
-	text "The PSYCHIC master"
+	text "The PSYCHIC Master"
 	line "of SAFFRON GYM is"
 	
 	para "predicting another"
@@ -219,33 +218,35 @@ SabrinaHintText:
 	done
 
 BlueHintText:	
-	text "Hoo-ha! the former"
-	line "CHAMPION awaits in"
-	cont "VIRIDIAN GYM."
+	text "Hoo-Ha!"
+	
+	para "BLUE, the former"
+	line "CHAMPION, is eager"
+	cont "for a battle."
 	done	
 
 PryceHintText:
-	text "I hear the leader"
-	line "of MAHOGANY GYM"
-	cont "is ready for a"
-	cont "rematch today."
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "I hear the Teacher"
+	line "in MAHOGANY GYM"
+	
+	para "is ready for a"
+	line "rematch today."
 	done
 
 JanineHintText:
-	text "The POISON ninja"
-	line "master of FUCHSIA"
+	text "The POISON Ninja"
+	line "Master of FUCHSIA"
 	cont "is keen to battle."
 	done
 
 MortyHintText:
 	text "The spirits near"
-	line "ECRUTEAK are very"
-	cont "still…"
+	line "ECRUTEAK GYM are"
+	cont "very still…"
 	
-	para "The mystic seer"
-	line "must be communing"
-	cont "with GHOST #MON"
-	cont "today."
+	para "The Mystic Seer"	
+	line "seeks a battle."
 	done
 
 BlaineHintText:
@@ -253,29 +254,35 @@ BlaineHintText:
 	line "from the cave at"
 	cont "SEAFOAM ISLANDS."
 	
-	para "The hot-headed"
-	line "quiz master must"
-	cont "be burning with"
-	cont "fighting spirit!"
+	para "The Hot-Headed"
+	line "Quiz Master must"
+	
+	para "be burning with"
+	line "fighting spirit!"
 	done
 
 ChuckHintText:
 	text "In CIANWOOD GYM,"
-	line "the leader says"
-	cont "his roaring fists"
-	cont "do the talking!"
+	line "LEADER CHUCK says:"
+	
+	para "His roaring fists"
+	line "do the talking!"
 	done
 
 JasmineHintText:
-	text "The STEEL-clad"
-	line "maiden of OLIVINE"
-	cont "is also waiting"
-	cont "for a challenge!"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "The STEEL-Clad"
+	line "Defense Girl from"
+	
+	para "OLIVINE is back"
+	line "and she's ready to"
+	cont "battle!"
 	done
 
 MistyHintText:
-	text "And, the tomboyish"
-	line "mermaid is at"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "MISTY, the Tomboy-"
+	line "ish Mermaid, is at"
 	cont "CERULEAN GYM."
 	
 	para "She's making a"
@@ -284,53 +291,62 @@ MistyHintText:
 	done
 
 BugsyHintText:
-	text "The BUG prodigy"
-	line "at AZALEA GYM"
-	cont "is studying new"
-	cont "battle tactics."
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "The Walking BUG"
+	line "#MON Encyclope-"
+	cont "dia at AZALEA GYM"
+	
+	para "is studying new"
+	line "battle tactics."
 	done
 
-;KantoThursdayHintText:
-;	text "KANTO'S leaders"
-;	line "seem to be rest-"
-;	cont "ing their #MON"
-;	cont "today."
-;	done
-
 ClairHintText:
-	text "The dragon lady"
-	line "of BLACKTHORN"
-	cont "GYM is ready for"
-	cont "a battle!"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "The Blessed User"
+	line "of DRAGON #MON" 
+	cont "has trained well."
+	
+	para "CLAIR stands ready"
+	line "for a battle at"
+	cont "BLACKTHORN GYM!"
 	done
 
 SurgeHintText:
-	text "The soldier in"
-	line "VERMILION GYM is"
-	cont "electrifying his"
-	cont "defenses."
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "VERMILION GYM's"
+	line "Lightning Lt. is"
+
+	para "charging up his"
+	line "#MON to battle!"
 	done
 
 FalknerHintText:
-	text "The elegant bird"
-	line "master in VIOLET"
-	cont "GYM is ready to"
-	cont "take flight!"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "The Elegant Master"
+	line "of FLYING #MON"
+	cont "has been training"
+	
+	para "really hard at"
+	line "his father's GYM"
+	cont "in VIOLET CITY." 
 	done
 
 WhitneyHintText:
-	text "Also, the pretty"
-	line "girl of GOLDEN-"
-	cont "ROD GYM wants a"
-	cont "new challenge!"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "WHITNEY, Pretty"
+	line "Girl of GOLDENROD"
+	
+	para "GYM, wants a new"
+	line "challenge!"
 	done
 
 BrockHintText:
-	text "And, the leader"
-	line "in PEWTER GYM"
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "BROCK, the ROCK-"
+	line "Solid Trainer, is"
 	
-	para "is ready for a"
-	line "ROCK-solid fight!"
+	para "battling hard in"
+	line "PEWTER GYM!"
 	done
 
 FightingDojoSign1Text:

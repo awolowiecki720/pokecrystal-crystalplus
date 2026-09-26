@@ -263,18 +263,12 @@ ChuckAfterText:
 	done
 
 ChuckRematchIntroText:
-	text "WAHAHAH!"
-	line "LEAGUE CHAMPION!"
+	text "Wahaha!"
+	
+	para "There you are!"
 
-	para "You've come"
-	line "back for more!"
-
-	para "I see your"
-	line "skills have"
-	cont "improved!"
-
-	para "Ready to see"
-	line "who's stronger?"
+	para "Taste my 24-hour"
+	line "training!"
 	done
 	
 ChuckRematchWinLossText:

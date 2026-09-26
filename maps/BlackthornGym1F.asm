@@ -330,14 +330,10 @@ ClairRematchWinLossText:
 	text "I lost?"
 
 	para "Again?"
-
-	para "I don't believe"
-	line "it. There must be"
-	cont "some mistake…"
 	done
 
 ClairRematchAfterBattleText:
-	text "Way to go."
+	text "Way to go…"
 	line "…"
 
 	para "Now give it your"

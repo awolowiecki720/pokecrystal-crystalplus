@@ -184,13 +184,14 @@ LtSurgeFightDoneText:
 	done
 
 LtSurgeRematchIntroText:
+	;pfsf"xxxxxxxxxxxxxxxxxx"
 	text "SURGE: Hey!"
 
 	para "You're back for"
 	line "more?"
 	
-	para "Then we'll elec-"
-	line "trify you!"
+	para "Then we'll"
+	line "electrify you!"
 	done 
 	
 LtSurgeRematchWinLossText:

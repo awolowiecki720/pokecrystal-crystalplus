@@ -232,18 +232,15 @@ FalknerFightDoneText:
 	done
 
 FalknerRematchIntroText:
-	text "Congratulations"
-	line "on defeating the"
-	cont "ELITE 4!"
+	text "Hi! I've been"
+	line "waiting for you!" 
 
 	para "I've been training"
 	line "my FLYING-type"
-	cont "#MON even"
-	cont "harder."
-
-	para "Think you can take"
-	line "on the power of"
-	cont "the skies again?"
+	cont "#MON non-stop!"
+	
+	para "It's a pleasure to"
+	line "battle you again."
 	done
 
 FalknerRematchWinLossText:

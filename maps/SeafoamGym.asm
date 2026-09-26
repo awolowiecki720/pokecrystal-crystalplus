@@ -51,8 +51,6 @@ SeafoamGymBlaineScript:
 	ifnotequal TUESDAY, .SkipRematch
 	checktime DAY
 	iffalse .SkipRematch
-	;readvar VAR_TIMEOFDAY
-	;ifnotequal DAY, .SkipRematch
 	checkflag ENGINE_DAILY_BLAINE_REMATCH
 	iftrue .SkipRematch
 	writetext BlaineRematchIntroText
@@ -160,23 +158,20 @@ BlaineRematchIntroText:
 	done 
 	
 BlaineRematchWinLossText:
-	text "BLAINE: Your"
-	line "skills are truly"
-	cont "heated!"
-
-	para "You've burned"
-	line "right through"
-	cont "my defenses."
+	;pfsf"xxxxxxxxxxxxxxxxxx"
+	text "BLAINE: You really"
+	line "are hot stuff!"
 	done
 
 BlaineRematchAfterBattleText:
 	text "BLAINE: Waaah!"
-	
-	para "I lost the battle,"
-	line "but my fiery soul"
 
-	para "hasn't fizzled"
-	line "out just yet!"
+	para "My spirit has not"
+	line "been defeated!"
+	
+	para "I won't give up"
+	line "until I rebuild my"
+	cont "CINNABAR GYM!"
 	done	
 
 SeafoamGymGuideWinText:
