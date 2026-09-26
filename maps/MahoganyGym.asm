@@ -15,6 +15,9 @@ MahoganyGym_MapScripts:
 MahoganyGymPryceScript:
 	faceplayer
 	opentext
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .PryceRematch
+.SkipRematch
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	writetext PryceText_Intro
@@ -34,7 +37,7 @@ MahoganyGymPryceScript:
 	scall MahoganyGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
-	iftrue PryceScript_Defeat
+	iftrue .PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
@@ -43,19 +46,40 @@ MahoganyGymPryceScript:
 	writetext PryceText_GlacierBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_ICY_WIND
-	iffalse MahoganyGym_NoRoomForIcyWind
+	iffalse .MahoganyGym_NoRoomForIcyWind
 	setevent EVENT_GOT_TM16_ICY_WIND
 	writetext PryceText_IcyWindSpeech
 	waitbutton
 	closetext
 	end
 
-PryceScript_Defeat:
+.PryceScript_Defeat:
 	writetext PryceText_CherishYourPokemon
 	waitbutton
-MahoganyGym_NoRoomForIcyWind:
+.MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
+
+.PryceRematch
+	readvar VAR_WEEKDAY
+	ifnotequal MONDAY, .SkipRematch
+	checktime MORN
+	iffalse .SkipRematch
+	checkflag ENGINE_DAILY_PRYCE_REMATCH
+	iftrue .SkipRematch
+	writetext PryceRematchIntroText
+	waitbutton
+	closetext
+	winlosstext PryceRematchWinLossText, 0
+	loadtrainer PRYCE, PRYCE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_PRYCE_REMATCH
+	opentext
+	writetext PryceRematchAfterBattleText
+	waitbutton
+	closetext
+	end	
 
 MahoganyGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -236,6 +260,24 @@ PryceText_CherishYourPokemon:
 
 	para "Cherish your time"
 	line "together!"
+	done
+
+PryceRematchIntroText:
+	text "Finally. No need"
+	line "for words."
+
+	para "A #MON battle"
+	line "is how we communi-"
+	cont "cate."
+	done
+	
+PryceRematchWinLossText:
+	text "Hmm. Seems my luck"
+	line "has run out."
+	done 
+
+PryceRematchAfterBattleText:
+	text "Mmm… Impressive!"
 	done
 
 BoarderRonaldSeenText:

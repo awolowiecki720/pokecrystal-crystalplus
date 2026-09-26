@@ -10,6 +10,9 @@ OlivineGym_MapScripts:
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .JasmineRematch
+.SkipRematch
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
@@ -46,6 +49,27 @@ OlivineGymJasmineScript:
 .NoRoomForIronTail:
 	closetext
 	end
+
+.JasmineRematch
+	readvar VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
+	checkflag ENGINE_DAILY_JASMINE_REMATCH
+	iftrue .SkipRematch
+	writetext JasmineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_JASMINE_REMATCH
+	opentext
+	writetext JasmineRematchAfterBattleText
+	waitbutton
+	closetext
+	end	
 
 OlivineGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -161,6 +185,26 @@ Jasmine_GoodLuck:
 	line "how to say this,"
 	cont "but good luck…"
 	done
+
+JasmineRematchIntroText:
+	text "We're here as we" 
+	line "promised…"
+
+	para "I have just retur-"
+	line "ned from visiting"
+	cont "AMPHY…"
+	
+	para "Are you prepared?"
+	done 
+	
+JasmineRematchWinLossText:
+	text "Well done…"
+	done
+
+JasmineRematchAfterBattleText:
+	text "True to your"
+	line "reputation…"
+	done 
 
 OlivineGymGuideText:
 	text "JASMINE uses the"

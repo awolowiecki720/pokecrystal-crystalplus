@@ -24,6 +24,9 @@ EcruteakGymNoopScene:
 EcruteakGymMortyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .MortyRematch
+.SkipRematch	
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
@@ -65,6 +68,27 @@ EcruteakGymMortyScript:
 	writetext MortyFightDoneText
 	waitbutton
 .NoRoomForShadowBall:
+	closetext
+	end
+
+.MortyRematch	
+	readvar VAR_WEEKDAY
+	ifnotequal TUESDAY, .SkipRematch
+	checktime NITE
+	iffalse .SkipRematch
+	checkflag ENGINE_DAILY_MORTY_REMATCH
+	iftrue .SkipRematch
+	writetext MortyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_MORTY_REMATCH
+	opentext
+	writetext MortyRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -273,6 +297,30 @@ MortyFightDoneText:
 	para "I envy you for"
 	line "that…"
 	done
+
+MortyRematchIntroText:
+	text "I was just talking"
+	line "about you…" 
+
+	para "I've been training"
+	line "with my GHOST-type"
+	cont "#MON…"
+
+	para "Let's battle!"
+	done
+	
+MortyRematchWinLossText:
+	text "I'm still not good"
+	line "enough…"
+	done
+
+MortyRematchAfterBattleText:
+	text "I've lost again…"
+	
+	para "You may have some-"
+	line "thing more than"
+	cont "just strength."
+	done 	
 
 SageJeffreySeenText:
 	text "I spent the spring"
