@@ -15,8 +15,14 @@ GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 GoldenrodPokecenter1F_GSBallSceneLeft:
+if DEF(_CRYSTAL11_VC)
+	setval BATTLETOWERACTION_GSBALL
+	special BattleTowerAction
+	ifequal GS_BALL_AVAILABLE, .gsball
+else
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .gsball
+endc
 	end
 
 .gsball
@@ -46,8 +52,14 @@ GoldenrodPokecenter1F_GSBallSceneLeft:
 	end
 
 GoldenrodPokecenter1F_GSBallSceneRight:
+if DEF(_CRYSTAL11_VC)
+	setval BATTLETOWERACTION_GSBALL
+	special BattleTowerAction
+	ifequal GS_BALL_AVAILABLE, .gsball
+else
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .gsball
+endc
 	end
 
 .gsball
