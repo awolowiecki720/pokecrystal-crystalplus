@@ -21,6 +21,9 @@ GoldenrodGymNoop2Scene:
 
 GoldenrodGymWhitneyScript:
 	faceplayer
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .WhitneyRematch
+.SkipRematch
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .FightDone
 	opentext
@@ -76,6 +79,28 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyGoodCryText
 	waitbutton
 .NoRoomForAttract:
+	closetext
+	end
+
+.WhitneyRematch:
+	readvar VAR_WEEKDAY
+	ifnotequal SATURDAY, .SkipRematch
+	checktime DAY
+	iffalse .SkipRematch
+	checkflag ENGINE_DAILY_WHITNEY_REMATCH
+	iftrue .SkipRematch
+	opentext
+	writetext WhitneyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext WhitneyRematchWinLossText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_WHITNEY_REMATCH
+	opentext
+	writetext WhitneyRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -267,6 +292,31 @@ WhitneyGoodCryText:
 	para "Come for a visit"
 	line "again! Bye-bye!"
 	done
+
+WhitneyRematchIntroText:
+	text "I never break my"
+	line "promises!"
+
+    para "I want to see how"
+    line "strong you are."
+
+	para "Are you ready?"
+	done
+	
+WhitneyRematchWinLossText:
+	text "Ugh…"
+	
+	para "…Snivel, hic…"
+	line "…You meanie!"
+	done 
+
+WhitneyRematchAfterBattleText:
+	text "You really are"
+	line "strong!"
+	
+	para "But I won't lose"
+	line "next time!"
+	done 
 
 LassCarrieSeenText:
 	text "Don't let my"
