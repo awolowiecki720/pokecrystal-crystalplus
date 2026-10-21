@@ -59,9 +59,6 @@ CeruleanGymGruntRunsOutScript:
 CeruleanGymMistyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .MistyRematch
-.SkipRematch
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
 	writetext MistyIntroText
@@ -85,27 +82,6 @@ CeruleanGymMistyScript:
 	waitbutton
 	closetext
 	end
-
-.MistyRematch
-	readvar VAR_WEEKDAY
-	ifnotequal WEDNESDAY, .SkipRematch
-	checktime MORN
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_MISTY_REMATCH
-	iftrue .SkipRematch
-	writetext MistyRematchIntroText
-	waitbutton
-	closetext
-	winlosstext MistyRematchWinLossText, 0
-	loadtrainer MISTY, MISTY2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_MISTY_REMATCH
-	opentext
-	writetext MistyRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script
@@ -321,11 +297,6 @@ MistyRematchIntroText:
 	para "Let me test how"
 	line "good you are!"
 	done 
-
-MistyRematchWinLossText:
-	text "MISTY: You really"
-	line "are good…"
-	done
 
 MistyRematchAfterBattleText:
 	text "MISTY: Wow!"

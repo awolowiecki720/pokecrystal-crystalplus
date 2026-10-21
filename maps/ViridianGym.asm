@@ -10,9 +10,6 @@ ViridianGym_MapScripts:
 ViridianGymBlueScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .BlueRematch
-.SkipRematch
 	checkflag ENGINE_EARTHBADGE
 	iftrue .FightDone
 	writetext LeaderBlueBeforeText
@@ -38,27 +35,6 @@ ViridianGymBlueScript:
 	waitbutton
 	closetext
 	end
-
-.BlueRematch
-	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, .SkipRematch
-	checktime NITE
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_BLUE_REMATCH
-	iftrue .SkipRematch
-	writetext BlueRematchIntroText
-	waitbutton
-	closetext
-	winlosstext BlueRematchWinLossText, 0
-	loadtrainer BLUE, BLUE2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_BLUE_REMATCH
-	opentext
-	writetext BlueRematchAfterBattleText
-	waitbutton
-	closetext
-	end			
 
 ViridianGymGuideScript:
 	faceplayer
@@ -167,13 +143,6 @@ BlueRematchIntroText:
 	line "to lose to me!"
 	done
 	
-BlueRematchWinLossText:
-	text "BLUE: What?"
-
-	para "How the heck did I"
-	line "lose again?"
-	done
-
 BlueRematchAfterBattleText:
 	text "BLUE: Hah!"
 

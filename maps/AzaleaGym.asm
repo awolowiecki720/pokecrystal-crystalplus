@@ -15,9 +15,6 @@ AzaleaGym_MapScripts:
 AzaleaGymBugsyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .BugsyRematch
-.SkipRematch
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
 	writetext BugsyText_INeverLose
@@ -58,27 +55,6 @@ AzaleaGymBugsyScript:
 .NoRoomForFuryCutter:
 	closetext
 	end
-
-.BugsyRematch
-	readvar VAR_WEEKDAY
-	ifnotequal THURSDAY, .SkipRematch
-	checktime DAY
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_BUGSY_REMATCH
-	iftrue .SkipRematch
-	writetext BugsyRematchIntroText
-	waitbutton
-	closetext
-	winlosstext BugsyRematchWinLossText, 0
-	loadtrainer BUGSY, BUGSY2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_BUGSY_REMATCH
-	opentext
-	writetext BugsyRematchAfterBattleText
-	waitbutton
-	closetext
-	end	
 
 AzaleaGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -264,11 +240,6 @@ BugsyRematchIntroText:
 	para "Behold my BUG"
 	line "research!"
 	done	
-
-BugsyRematchWinLossText:
-	text "My research must"
-	line "not be complete…"
-	done
 
 BugsyRematchAfterBattleText:
 	text "You must have"

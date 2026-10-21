@@ -15,9 +15,6 @@ MahoganyGym_MapScripts:
 MahoganyGymPryceScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .PryceRematch
-.SkipRematch
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	writetext PryceText_Intro
@@ -59,27 +56,6 @@ MahoganyGymPryceScript:
 .MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
-
-.PryceRematch
-	readvar VAR_WEEKDAY
-	ifnotequal MONDAY, .SkipRematch
-	checktime MORN
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_PRYCE_REMATCH
-	iftrue .SkipRematch
-	writetext PryceRematchIntroText
-	waitbutton
-	closetext
-	winlosstext PryceRematchWinLossText, 0
-	loadtrainer PRYCE, PRYCE2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_PRYCE_REMATCH
-	opentext
-	writetext PryceRematchAfterBattleText
-	waitbutton
-	closetext
-	end	
 
 MahoganyGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
@@ -271,11 +247,6 @@ PryceRematchIntroText:
 	cont "cate."
 	done
 	
-PryceRematchWinLossText:
-	text "Hmm. Seems my luck"
-	line "has run out."
-	done 
-
 PryceRematchAfterBattleText:
 	text "Mmm… Impressive!"
 	done

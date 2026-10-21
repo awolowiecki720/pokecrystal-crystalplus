@@ -13,9 +13,6 @@ VermilionGym_MapScripts:
 VermilionGymSurgeScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .LtSurgeRematch
-.SkipRematch
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
 	writetext LtSurgeIntroText
@@ -44,27 +41,6 @@ VermilionGymSurgeScript:
 	waitbutton
 	closetext
 	end
-
-.LtSurgeRematch
-	readvar VAR_WEEKDAY
-	ifnotequal FRIDAY, .SkipRematch
-	checktime MORN
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_LTSURGE_REMATCH
-	iftrue .SkipRematch
-	writetext LtSurgeRematchIntroText
-	waitbutton
-	closetext
-	winlosstext LtSurgeRematchWinLossText, 0
-	loadtrainer LT_SURGE, LT_SURGE2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_LTSURGE_REMATCH
-	opentext
-	writetext LtSurgeRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script
@@ -184,7 +160,6 @@ LtSurgeFightDoneText:
 	done
 
 LtSurgeRematchIntroText:
-	;pfsf"xxxxxxxxxxxxxxxxxx"
 	text "SURGE: Hey!"
 
 	para "You're back for"
@@ -194,12 +169,6 @@ LtSurgeRematchIntroText:
 	line "electrify you!"
 	done 
 	
-LtSurgeRematchWinLossText:
-	text "SURGE: Arrrgh!"
-	line "You're still just"
-	cont "as strong!"
-	done
-
 LtSurgeRematchAfterBattleText:
 	text "SURGE: Arrrgh!"
 
