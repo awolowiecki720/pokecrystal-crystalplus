@@ -10,20 +10,71 @@ FightingDojo_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, FightingDojoSetupRematchesCallback
+	callback MAPCALLBACK_SPRITES, FightingDojoSetupRematchSpritesCallback
 
-MACRO dojo_rematch_appear
+MACRO dojo_rematch_set_slot
 	variablesprite \1, \2
 	moveobject \3, \4, \5
 	setval \6 << 4
 	writemem wMap1ObjectPalette + (\3 - FIGHTINGDOJO_BLACK_BELT) * MAPOBJECT_LENGTH
-	appear \3
-	special LoadUsedSpritesGFX
 ENDM
 
 FightingDojoSetupRematchesCallback:
-	disappear FIGHTINGDOJO_REMATCH_1
-	disappear FIGHTINGDOJO_REMATCH_2
-	disappear FIGHTINGDOJO_REMATCH_3
+	setevent EVENT_REMATCH_GYM_LEADER_1
+	setevent EVENT_REMATCH_GYM_LEADER_2
+	setevent EVENT_REMATCH_GYM_LEADER_3
+	checkevent EVENT_OPENED_MT_SILVER
+	iffalse .Done
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .Monday
+	ifequal TUESDAY, .Tuesday
+	ifequal WEDNESDAY, .Wednesday
+	ifequal THURSDAY, .Thursday
+	ifequal FRIDAY, .Friday
+	ifequal SATURDAY, .Saturday
+	ifequal SUNDAY, .Sunday
+.Done:
+	endcallback
+
+.Monday
+	clearevent EVENT_REMATCH_GYM_LEADER_1
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	endcallback
+.Tuesday
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	clearevent EVENT_REMATCH_GYM_LEADER_3
+	endcallback
+.Wednesday
+	clearevent EVENT_REMATCH_GYM_LEADER_1
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	clearevent EVENT_REMATCH_GYM_LEADER_3
+	endcallback
+.Thursday
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	endcallback
+.Friday
+	clearevent EVENT_REMATCH_GYM_LEADER_1
+	clearevent EVENT_REMATCH_GYM_LEADER_3
+	endcallback
+.Saturday
+	clearevent EVENT_REMATCH_GYM_LEADER_1
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	clearevent EVENT_REMATCH_GYM_LEADER_3
+	endcallback
+.Sunday
+	clearevent EVENT_REMATCH_GYM_LEADER_1
+	clearevent EVENT_REMATCH_GYM_LEADER_2
+	clearevent EVENT_REMATCH_GYM_LEADER_3
+	endcallback
+
+FightingDojoSetupRematchSpritesCallback:
+	readmem hMapEntryMethod
+	ifequal MAPSETUP_CONTINUE, .Done
+	ifequal MAPSETUP_RELOADMAP, .Done
+	ifequal MAPSETUP_LINKRETURN, .Done
+	variablesprite SPRITE_DOLL_1, SPRITE_BLACK_BELT
+	variablesprite SPRITE_DOLL_2, SPRITE_BLACK_BELT
+	variablesprite SPRITE_BIG_DOLL, SPRITE_BLACK_BELT
 	checkevent EVENT_OPENED_MT_SILVER
 	iffalse .Done
 	readvar VAR_WEEKDAY
@@ -39,101 +90,97 @@ FightingDojoSetupRematchesCallback:
 
 .Monday
 	checktime MORN
-	iftrue .MondayMorn
+	iftrue .Pryce
 	checktime DAY
-	iftrue .MondayDay
+	iftrue .Janine
 	sjump .Done
-.MondayMorn
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_PRYCE, FIGHTINGDOJO_REMATCH_1, 1, 4, PAL_NPC_BROWN
-	endcallback
-.MondayDay
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_JANINE, FIGHTINGDOJO_REMATCH_2, 3, 6, PAL_NPC_BLUE
-	endcallback
-
 .Tuesday
 	checktime DAY
-	iftrue .TuesdayDay
+	iftrue .Blaine
 	checktime NITE
-	iftrue .TuesdayNight
+	iftrue .Morty
 	sjump .Done
-.TuesdayDay
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_BLAINE, FIGHTINGDOJO_REMATCH_1, 7, 6, PAL_NPC_BROWN
-	endcallback
-.TuesdayNight
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_MORTY, FIGHTINGDOJO_REMATCH_2, 1, 6, PAL_NPC_BROWN
-	endcallback
-
 .Wednesday
 	checktime MORN
-	iftrue .WednesdayMorn
+	iftrue .Misty
 	checktime DAY
-	iftrue .WednesdayDay
+	iftrue .Jasmine
 	checktime NITE
-	iftrue .WednesdayNight
+	iftrue .Chuck
 	sjump .Done
-.WednesdayMorn
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_MISTY, FIGHTINGDOJO_REMATCH_1, 4, 7, PAL_NPC_RED
-	endcallback
-.WednesdayDay
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_JASMINE, FIGHTINGDOJO_REMATCH_2, 5, 7, PAL_NPC_RED
-	endcallback
-.WednesdayNight
-	dojo_rematch_appear SPRITE_BIG_DOLL, SPRITE_CHUCK, FIGHTINGDOJO_REMATCH_3, 7, 7, PAL_NPC_BROWN
-	endcallback
-
 .Thursday
 	checktime DAY
-	iffalse .Done
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_BUGSY, FIGHTINGDOJO_REMATCH_1, 3, 8, PAL_NPC_GREEN
-	endcallback
-
+	iftrue .Bugsy
+	sjump .Done
 .Friday
 	checktime MORN
-	iftrue .FridayMorn
+	iftrue .Surge
 	checktime NITE
-	iftrue .FridayNight
+	iftrue .Clair
 	sjump .Done
-.FridayMorn
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_SURGE, FIGHTINGDOJO_REMATCH_1, 2, 7, PAL_NPC_BROWN
-	endcallback
-.FridayNight
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_CLAIR, FIGHTINGDOJO_REMATCH_2, 6, 8, PAL_NPC_BLUE
-	endcallback
-
 .Saturday
 	checktime MORN
-	iftrue .SaturdayMorn
+	iftrue .Falkner
 	checktime DAY
-	iftrue .SaturdayDay
+	iftrue .Whitney
 	checktime NITE
-	iftrue .SaturdayNight
+	iftrue .Brock
 	sjump .Done
-.SaturdayMorn
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_FALKNER, FIGHTINGDOJO_REMATCH_1, 5, 8, PAL_NPC_BLUE
-	endcallback
-.SaturdayDay
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_WHITNEY, FIGHTINGDOJO_REMATCH_2, 9, 4, PAL_NPC_RED
-	endcallback
-.SaturdayNight
-	dojo_rematch_appear SPRITE_BIG_DOLL, SPRITE_BROCK, FIGHTINGDOJO_REMATCH_3, 1, 9, PAL_NPC_BROWN
-	endcallback
-
 .Sunday
 	checktime MORN
-	iftrue .SundayMorn
+	iftrue .Erika
 	checktime DAY
-	iftrue .SundayDay
+	iftrue .Sabrina
 	checktime NITE
-	iftrue .SundayNight
+	iftrue .Blue
 	sjump .Done
-.SundayMorn
-	dojo_rematch_appear SPRITE_DOLL_1, SPRITE_ERIKA, FIGHTINGDOJO_REMATCH_1, 0, 4, PAL_NPC_GREEN
+.Pryce
+	dojo_rematch_set_slot SPRITE_DOLL_1, SPRITE_PRYCE, FIGHTINGDOJO_REMATCH_1, 1, 4, PAL_NPC_BROWN
 	endcallback
-.SundayDay
-	dojo_rematch_appear SPRITE_DOLL_2, SPRITE_SABRINA, FIGHTINGDOJO_REMATCH_2, 0, 9, PAL_NPC_RED
+.Janine
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_JANINE, FIGHTINGDOJO_REMATCH_2, 3, 6, PAL_NPC_BLUE
 	endcallback
-.SundayNight
-	dojo_rematch_appear SPRITE_BIG_DOLL, SPRITE_BLUE, FIGHTINGDOJO_REMATCH_3, 4, 8, 0
+.Blaine
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_BLAINE, FIGHTINGDOJO_REMATCH_2, 7, 6, PAL_NPC_BROWN
+	endcallback
+.Morty
+	dojo_rematch_set_slot SPRITE_BIG_DOLL, SPRITE_MORTY, FIGHTINGDOJO_REMATCH_3, 1, 6, PAL_NPC_BROWN
+	endcallback
+.Misty
+	dojo_rematch_set_slot SPRITE_DOLL_1, SPRITE_MISTY, FIGHTINGDOJO_REMATCH_1, 4, 7, PAL_NPC_RED
+	endcallback
+.Jasmine
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_JASMINE, FIGHTINGDOJO_REMATCH_2, 5, 7, PAL_NPC_RED
+	endcallback
+.Chuck
+	dojo_rematch_set_slot SPRITE_BIG_DOLL, SPRITE_CHUCK, FIGHTINGDOJO_REMATCH_3, 7, 7, PAL_NPC_BROWN
+	endcallback
+.Bugsy
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_BUGSY, FIGHTINGDOJO_REMATCH_2, 3, 8, PAL_NPC_GREEN
+	endcallback
+.Surge
+	dojo_rematch_set_slot SPRITE_DOLL_1, SPRITE_SURGE, FIGHTINGDOJO_REMATCH_1, 2, 7, PAL_NPC_BROWN
+	endcallback
+.Clair
+	dojo_rematch_set_slot SPRITE_BIG_DOLL, SPRITE_CLAIR, FIGHTINGDOJO_REMATCH_3, 6, 8, PAL_NPC_BLUE
+	endcallback
+.Falkner
+	dojo_rematch_set_slot SPRITE_DOLL_1, SPRITE_FALKNER, FIGHTINGDOJO_REMATCH_1, 5, 8, PAL_NPC_BLUE
+	endcallback
+.Whitney
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_WHITNEY, FIGHTINGDOJO_REMATCH_2, 9, 4, PAL_NPC_RED
+	endcallback
+.Brock
+	dojo_rematch_set_slot SPRITE_BIG_DOLL, SPRITE_BROCK, FIGHTINGDOJO_REMATCH_3, 1, 9, PAL_NPC_BROWN
+	endcallback
+.Erika
+	dojo_rematch_set_slot SPRITE_DOLL_1, SPRITE_ERIKA, FIGHTINGDOJO_REMATCH_1, 0, 4, PAL_NPC_GREEN
+	endcallback
+.Sabrina
+	dojo_rematch_set_slot SPRITE_DOLL_2, SPRITE_SABRINA, FIGHTINGDOJO_REMATCH_2, 0, 9, PAL_NPC_RED
+	endcallback
+.Blue
+	dojo_rematch_set_slot SPRITE_BIG_DOLL, SPRITE_BLUE, FIGHTINGDOJO_REMATCH_3, 4, 8, 0
 	endcallback
 
 MACRO dojo_rematch_script
@@ -317,9 +364,7 @@ FightingDojoRematch1Script:
 	ifequal SPRITE_FALKNER, FightingDojoFalknerScript
 	ifequal SPRITE_ERIKA, FightingDojoErikaScript
 	ifequal SPRITE_PRYCE, FightingDojoPryceScript
-	ifequal SPRITE_BLAINE, FightingDojoBlaineScript
 	ifequal SPRITE_MISTY, FightingDojoMistyScript
-	ifequal SPRITE_BUGSY, FightingDojoBugsyScript
 	ifequal SPRITE_SURGE, FightingDojoLtSurgeScript
 	disappear FIGHTINGDOJO_REMATCH_1
 	end
@@ -329,9 +374,9 @@ FightingDojoRematch2Script:
 	ifequal SPRITE_WHITNEY, FightingDojoWhitneyScript
 	ifequal SPRITE_SABRINA, FightingDojoSabrinaScript
 	ifequal SPRITE_JANINE, FightingDojoJanineScript
-	ifequal SPRITE_MORTY, FightingDojoMortyScript
+	ifequal SPRITE_BLAINE, FightingDojoBlaineScript
 	ifequal SPRITE_JASMINE, FightingDojoJasmineScript
-	ifequal SPRITE_CLAIR, FightingDojoClairScript
+	ifequal SPRITE_BUGSY, FightingDojoBugsyScript
 	disappear FIGHTINGDOJO_REMATCH_2
 	end
 
@@ -339,7 +384,9 @@ FightingDojoRematch3Script:
 	readmem wVariableSprites + SPRITE_BIG_DOLL - SPRITE_VARS
 	ifequal SPRITE_BROCK, FightingDojoBrockScript
 	ifequal SPRITE_BLUE, FightingDojoBlueScript
+	ifequal SPRITE_MORTY, FightingDojoMortyScript
 	ifequal SPRITE_CHUCK, FightingDojoChuckScript
+	ifequal SPRITE_CLAIR, FightingDojoClairScript
 	disappear FIGHTINGDOJO_REMATCH_3
 	end
 
@@ -404,6 +451,6 @@ FightingDojo_MapEvents:
 	def_object_events
 	object_event  4,  4, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FightingDojoBlackBelt, -1
 	object_event  3,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FightingDojoFocusBand, EVENT_PICKED_UP_FOCUS_BAND
-	object_event  0,  0, SPRITE_DOLL_1, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	object_event  0,  0, SPRITE_DOLL_2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	object_event  0,  0, SPRITE_BIG_DOLL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch3Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event  0,  0, SPRITE_DOLL_1, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch1Script, EVENT_REMATCH_GYM_LEADER_1
+	object_event  0,  0, SPRITE_DOLL_2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, DAY, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch2Script, EVENT_REMATCH_GYM_LEADER_2
+	object_event  0,  0, SPRITE_BIG_DOLL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, FightingDojoRematch3Script, EVENT_REMATCH_GYM_LEADER_3
