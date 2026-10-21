@@ -11,9 +11,6 @@ PewterGym_MapScripts:
 PewterGymBrockScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .BrockRematch
-.SkipRematch
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
 	writetext BrockIntroText
@@ -40,27 +37,6 @@ PewterGymBrockScript:
 	waitbutton
 	closetext
 	end
-
-.BrockRematch
-	readvar VAR_WEEKDAY
-	ifnotequal SATURDAY, .SkipRematch
-	checktime NITE
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_BROCK_REMATCH
-	iftrue .SkipRematch
-	writetext BrockRematchIntroText
-	waitbutton
-	closetext
-	winlosstext BrockRematchWinLossText, 0
-	loadtrainer BROCK, BROCK2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_BROCK_REMATCH
-	opentext
-	writetext BrockRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 TrainerCamperJerry:
 	trainer CAMPER, JERRY, EVENT_BEAT_CAMPER_JERRY, CamperJerrySeenText, CamperJerryBeatenText, 0, .Script
@@ -177,14 +153,6 @@ BrockRematchIntroText:
 	para "Let's battle!"
 	done 
 	
-BrockRematchWinLossText:
-	text "BROCK: Seems your"
-	line "#MON once again"
-	
-	para "overcame my rock-"
-	line "hard resistance."
-	done
-
 BrockRematchAfterBattleText:
 	text "BROCK: I've lost"
 	line "again…"

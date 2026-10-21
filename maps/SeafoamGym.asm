@@ -14,9 +14,6 @@ SeafoamGymNoopScene:
 SeafoamGymBlaineScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .BlaineRematch
-.SkipRematch
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
 	writetext BlaineIntroText
@@ -45,27 +42,6 @@ SeafoamGymBlaineScript:
 	waitbutton
 	closetext
 	end
-
-.BlaineRematch
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, .SkipRematch
-	checktime DAY
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_BLAINE_REMATCH
-	iftrue .SkipRematch
-	writetext BlaineRematchIntroText
-	waitbutton
-	closetext
-	winlosstext BlaineRematchWinLossText, 0
-	loadtrainer BLAINE, BLAINE2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_BLAINE_REMATCH
-	opentext
-	writetext BlaineRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 SeafoamGymGuideScript:
 	faceplayer
@@ -157,11 +133,6 @@ BlaineRematchIntroText:
 	line "scorching battle!"
 	done 
 	
-BlaineRematchWinLossText:
-	text "BLAINE: You really"
-	line "are hot stuff!"
-	done
-
 BlaineRematchAfterBattleText:
 	text "BLAINE: Waaah!"
 

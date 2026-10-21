@@ -12,9 +12,6 @@ FuchsiaGym_MapScripts:
 	def_callbacks
 
 FuchsiaGymJanineScript:
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .JanineRematch
-.SkipRematch
 	checkflag ENGINE_SOULBADGE
 	iftrue .FightDone
 	applymovement FUCHSIAGYM_JANINE, Movement_NinjaSpin
@@ -59,29 +56,6 @@ FuchsiaGymJanineScript:
 	waitbutton
 	closetext
 	end
-
-.JanineRematch
-	readvar VAR_WEEKDAY
-	ifnotequal MONDAY, .SkipRematch
-	checktime DAY
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_JANINE_REMATCH
-	iftrue .SkipRematch
-	faceplayer
-	opentext
-	writetext JanineRematchIntroText
-	waitbutton
-	closetext
-	winlosstext JanineRematchWinLossText, 0
-	loadtrainer JANINE, JANINE2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_JANINE_REMATCH
-	opentext
-	writetext JanineRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 LassAliceScript:
 	checkevent EVENT_BEAT_LASS_ALICE
@@ -321,11 +295,6 @@ JanineRematchIntroText:
 	line "you win!"
 	done
 	
-JanineRematchWinLossText:
-	text "!!!"
-	line "So so strong!"
-	done 
-
 JanineRematchAfterBattleText:
 	text "JANINE: I lost"
 	line "today, but I'll"

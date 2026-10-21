@@ -14,9 +14,6 @@ SaffronGym_MapScripts:
 SaffronGymSabrinaScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .SabrinaRematch
-.SkipRematch
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
 	writetext SabrinaIntroText
@@ -46,27 +43,6 @@ SaffronGymSabrinaScript:
 	waitbutton
 	closetext
 	end
-
-.SabrinaRematch
-	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, .SkipRematch
-	checktime DAY
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_SABRINA_REMATCH
-	iftrue .SkipRematch
-	writetext SabrinaRematchIntroText
-	waitbutton
-	closetext
-	winlosstext SabrinaRematchWinLossText, 0
-	loadtrainer SABRINA, SABRINA2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_SABRINA_REMATCH
-	opentext
-	writetext SabrinaRematchAfterBattleText
-	waitbutton
-	closetext
-	end		
 
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
@@ -222,14 +198,6 @@ SabrinaRematchIntroText:
 	line "you'd come again…"
 
 	para "I had a feeling."
-	done
-
-SabrinaRematchWinLossText:
-	text "SABRINA: Your love"
-	line "for your #MON…"
-
-	para "It overwhelmed me"
-	line "again…"
 	done
 
 SabrinaRematchAfterBattleText:

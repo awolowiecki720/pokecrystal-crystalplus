@@ -17,9 +17,6 @@ CianwoodGym_MapScripts:
 CianwoodGymChuckScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .ChuckRematch
-.SkipRematch
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
@@ -73,27 +70,6 @@ CianwoodGymChuckScript:
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
-	closetext
-	end
-
-.ChuckRematch
-	readvar VAR_WEEKDAY
-	ifnotequal WEDNESDAY, .SkipRematch
-	checktime NITE
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_CHUCK_REMATCH
-	iftrue .SkipRematch
-	writetext ChuckRematchIntroText
-	waitbutton
-	closetext
-	winlosstext ChuckRematchWinLossText, 0
-	loadtrainer CHUCK, CHUCK2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_CHUCK_REMATCH
-	opentext
-	writetext ChuckRematchAfterBattleText
-	waitbutton
 	closetext
 	end
 
@@ -271,12 +247,6 @@ ChuckRematchIntroText:
 	line "training!"
 	done
 	
-ChuckRematchWinLossText:
-	text "Wha? Huh?"
-	line "I lost?"
-	cont "Again?"
-	done
-
 ChuckRematchAfterBattleText:
 	text "Wahaha!"
 

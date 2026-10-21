@@ -29,9 +29,6 @@ BlackthornGym1FBouldersCallback:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
-	iftrue .ClairRematch
-.SkipRematch
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
@@ -92,27 +89,6 @@ BlackthornGymClairScript:
 	waitbutton
 	closetext
 	end
-
-.ClairRematch
-	readvar VAR_WEEKDAY
-	ifnotequal FRIDAY, .SkipRematch
-	checktime NITE
-	iffalse .SkipRematch
-	checkflag ENGINE_DAILY_CLAIR_REMATCH
-	iftrue .SkipRematch
-	writetext ClairRematchIntroText
-	waitbutton
-	closetext
-	winlosstext ClairRematchWinLossText, 0
-	loadtrainer CLAIR, CLAIR2
-	startbattle
-	reloadmapafterbattle
-	setflag ENGINE_DAILY_CLAIR_REMATCH
-	opentext
-	writetext ClairRematchAfterBattleText
-	waitbutton
-	closetext
-	end	
 
 TrainerCooltrainermPaul:
 	trainer COOLTRAINERM, PAUL, EVENT_BEAT_COOLTRAINERM_PAUL, CooltrainermPaulSeenText, CooltrainermPaulBeatenText, 0, .Script
@@ -324,12 +300,6 @@ ClairRematchIntroText:
 	cont "hold back."
 
 	para "Not this time."
-	done
-
-ClairRematchWinLossText:
-	text "I lost?"
-
-	para "Again?"
 	done
 
 ClairRematchAfterBattleText:
