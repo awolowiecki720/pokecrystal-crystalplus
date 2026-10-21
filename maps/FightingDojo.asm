@@ -361,6 +361,7 @@ FightingDojoFocusBand:
 	itemball FOCUS_BAND
 
 FightingDojoBlackBeltText:
+	;pfsf"xxxxxxxxxxxxxxxxxx"
 	text "Hello!"
 
 	para "KARATE KING, the"

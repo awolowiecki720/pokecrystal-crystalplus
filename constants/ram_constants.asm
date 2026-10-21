@@ -6,6 +6,19 @@ DEF AUTO_INPUT EQU $ff
 	const DEBUG_BATTLE_F
 	const DEBUG_FIELD_F
 
+; wPokedexColor
+	const_def
+	const DEXCOLOR_RED
+	const DEXCOLOR_BLUE
+	const DEXCOLOR_PURPLE
+	const DEXCOLOR_BROWN
+	const DEXCOLOR_GREEN
+	const DEXCOLOR_PINK
+	const DEXCOLOR_YELLOW
+	const DEXCOLOR_CYAN
+       const DEXCOLOR_GRAY
+	const DEXCOLOR_MEWTWO
+
 ; wCurDexMode::
 	const_def
 	const DEXMODE_NEW
